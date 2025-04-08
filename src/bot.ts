@@ -571,6 +571,83 @@ bot.on("callback_query", async (query) => {
     }
   }
 
+  if (data.startsWith("amount_sell_percent_market_")) {
+    const selectedWallet = selectedWallets.get(userId);
+    const marketOrder = marketOrders.get(userId);
+
+    if (!selectedWallet || !marketOrder?.tokenIn) {
+      await bot.sendMessage(chatId, "⚠️ Wallet or token not selected.");
+      return;
+    }
+
+    const percentStr = data.replace("amount_sell_percent_market_", "");
+    const percent = parseFloat(percentStr);
+
+    try {
+      const balance = await abstractChainService.getBalance(
+        marketOrder.tokenIn,
+        selectedWallet
+      );
+
+      if (Number(balance) === 0) {
+        await bot.sendMessage(chatId, "😕 Your wallet has 0 token.");
+        return;
+      }
+
+      const selectedAmount = Math.floor(Number(balance) * percent);
+      marketOrder.amount = selectedAmount;
+      marketOrders.set(userId, marketOrder);
+      const tokenLabel = marketOrder.tokenIn
+        ? `🔘 Token: ${marketOrder.tokenIn.slice(
+            0,
+            6
+          )}...${marketOrder.tokenIn.slice(-4)}`
+        : "🔘 Token To Sell";
+      await bot.sendMessage(
+        chatId,
+        `✅ You selected *${selectedAmount} tokens* to sell.`,
+        {
+          parse_mode: "Markdown",
+          reply_markup: {
+            inline_keyboard: [
+              [
+                {
+                  text: tokenLabel,
+                  callback_data: "edit_token_sell_market",
+                },
+              ],
+              [
+                {
+                  text: "✅ Slippage: Auto",
+                  callback_data: "slippage_auto_sell_market",
+                },
+                {
+                  text: "Slippage: Custom %",
+                  callback_data: "slippage_custom_sell_market",
+                },
+              ],
+              [
+                {
+                  text: "Amount: TOKEN",
+                  callback_data: "edit_amount_sell_market",
+                },
+              ],
+              [
+                {
+                  text: "🟣 Create Order",
+                  callback_data: "create_order_market",
+                },
+              ],
+            ],
+          },
+        }
+      );
+    } catch (err) {
+      console.error("Error handling percentage selection:", err);
+      await bot.sendMessage(chatId, "❌ Failed to set amount.");
+    }
+  }
+
   if (data.startsWith("expiry_buy_")) {
     const value = data.replace("expiry_buy_", "");
 
@@ -1365,7 +1442,7 @@ bot.on("callback_query", async (query) => {
         const amount = Math.floor(Number(balance) * percent);
         return {
           text: `${percent * 100}% (${amount} token)`,
-          callback_data: `amount_sell_percent_${percent}`,
+          callback_data: `amount_sell_percent_market_${percent}`,
         };
       };
 

@@ -24,7 +24,6 @@ async function executeReservoirSwap(
   steps: ReservoirSwapStep[],
   signer: ethers.Signer
 ) {
-  let signature;
   for (const step of steps) {
     for (const item of step.items) {
       const txData = item.data;
@@ -40,19 +39,18 @@ async function executeReservoirSwap(
       };
 
       try {
+        console.log(
+          `📤 Sending ${step.id.toUpperCase()} tx to ${txData.to}...`
+        );
         const txResponse = await signer.sendTransaction(tx);
         const receipt = await txResponse.wait();
-        if (step.id.toLowerCase() === "swap") {
-          console.log(`✅ ${step.id} confirmed: ${receipt!.hash}`);
-          signature = receipt!.hash;
-        }
+        console.log(`✅ ${step.id} confirmed: ${receipt!.hash}`);
       } catch (err) {
         console.error(`❌ Failed on step ${step.id}:`, err);
         throw err; // You may want to handle or log it better
       }
     }
   }
-  return signature;
 }
 
 async function getQuoteForSwap({
@@ -64,7 +62,7 @@ async function getQuoteForSwap({
   user: string;
   originCurrency: string;
   destinationCurrency: string;
-  amount: number;
+  amount: string;
 }) {
   const options = {
     method: "POST",
@@ -85,9 +83,9 @@ async function getQuoteForSwap({
 
 async function run() {
   const user = "0x9c0dC0a5C160cbb0F81243842fEC5c6b362Fbe70";
-  const originCurrency = "0x3439153EB7AF838Ad19d56E1571FBD09333C2809";
-  const destinationCurrency = "0x4db861A72adca3Ca978B93E2a9E797db4836A08F";
-  const amount = 100000000000000;
+  const originCurrency = "0x4db861A72adca3Ca978B93E2a9E797db4836A08F";
+  const destinationCurrency = "0x3439153EB7AF838Ad19d56E1571FBD09333C2809";
+  const amount = BigInt(47896431999383092628693).toString();
 
   const quote = await getQuoteForSwap({
     user,

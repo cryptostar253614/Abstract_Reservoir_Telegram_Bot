@@ -161,7 +161,7 @@ class AbstractChainService {
     steps: ReservoirSwapStep[],
     signer: ethers.Signer
   ) {
-    let signature;
+    let tx_hash: string | undefined;
     for (const step of steps) {
       for (const item of step.items) {
         const txData = item.data;
@@ -181,64 +181,18 @@ class AbstractChainService {
           const receipt = await txResponse.wait();
           if (step.id.toLowerCase() === "swap") {
             console.log(`✅ ${step.id} confirmed: ${receipt!.hash}`);
-            signature = receipt!.hash;
+            tx_hash = receipt!.hash;
           }
         } catch (err) {
-          console.error(`❌ Failed on step ${step.id}:`, err);
           throw err; // You may want to handle or log it better
         }
       }
     }
-    return signature;
+    return tx_hash;
   }
 }
 
 const abstractChainService = new AbstractChainService();
-
-// Reservoir Service
-class ReservoirService {
-  private api = axios.create({
-    baseURL: config.RESERVOIR_API_URL,
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  });
-
-  async getTokenPrice(tokenIn: string, tokenOut: string): Promise<number> {
-    try {
-      const response = await this.api.get<{ price: number }>(
-        `/tokens/price?tokenIn=${tokenIn}&tokenOut=${tokenOut}`
-      );
-      return response.data.price;
-    } catch (error) {
-      console.error("Error fetching token price:", error);
-      throw new Error("Failed to fetch token price");
-    }
-  }
-
-  async getTokenInfo(tokenAddress: string): Promise<{ symbol: string }> {
-    try {
-      const response = await this.api.get<{ symbol: string }>(
-        `/tokens/${tokenAddress}`
-      );
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching token info:", error);
-      throw new Error("Failed to fetch token info");
-    }
-  }
-
-  async executeSwap(order: IOrder, telegramId: number) {
-    try {
-    } catch (error) {
-      console.error("Error executing swap:", error);
-      throw error;
-    }
-  }
-}
-
-const reservoirService = new ReservoirService();
 
 // Telegram Bot Messages
 const messages = {
@@ -1714,13 +1668,14 @@ setInterval(async () => {
         // Notify user (you can send a transaction hash here when it's available)
         await bot.sendMessage(
           order.userId,
-          `✅ Order executed!\n\n` +
+          `✅ *Order executed!*\n\n` +
             `*Type:* ${order.type}\n` +
             `*Amount:* ${order.amount}\n` +
             `*Token:* ${tokenToWatch}\n` +
             `*Price:* ${price}\n` +
             `*Slippage:* ${order.slippage}%\n` +
-            `*Tx Signature:* [${signature}](https://abscan.org/tx/${signature})`
+            `*Tx Signature:* [${signature}](https://abscan.org/tx/${signature})`,
+          { parse_mode: "Markdown" }
         );
       }
 

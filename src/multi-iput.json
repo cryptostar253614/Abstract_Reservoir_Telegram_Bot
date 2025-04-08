@@ -1,0 +1,12 @@
+{
+  "_id": {
+    "$oid": "67f329407af11395791af9d2"
+  },
+  "telegramId": 1308524406,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-04-07T01:24:16.143Z"
+  },
+  "encryptedPrivateKey": "8621aa6dfafe09f2930cb8b5735aa924:f89cfd5c64ef79769491578f4e5c060fa8bb6ef633b085ceb205145f022e8cfc883c5428a57945e608bbe39803a60147e6200ab0a76c11bb005de5cf211ff3df0bdcafcf4f44542db0037531b37e92e1",
+  "walletAddress": "0x3fB8Aa3752dc84ECD5639C9ADA3a238FABaF12D0"
+}

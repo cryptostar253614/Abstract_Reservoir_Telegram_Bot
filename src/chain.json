@@ -1,0 +1,5286 @@
+{
+  "chains": [
+    {
+      "id": 1,
+      "name": "ethereum",
+      "displayName": "Ethereum",
+      "httpRpcUrl": "https://ethereum.publicnode.com",
+      "wsRpcUrl": "wss://ethereum.publicnode.com",
+      "explorerUrl": "https://etherscan.io",
+      "explorerName": "Etherscan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 0,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtc",
+          "symbol": "WBTC",
+          "name": "Wrapped BTC",
+          "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "dai",
+          "symbol": "DAI",
+          "name": "Dai Stablecoin",
+          "address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "plume",
+          "symbol": "PLUME",
+          "name": "PLUME",
+          "address": "0x4c1746a800d224393fe2470c70a35717ed4ea5f1",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "g7",
+          "symbol": "G7",
+          "name": "G7",
+          "address": "0x12c88a3c30a7aabc1dd7f2c08a97145f5dccd830",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "power",
+          "symbol": "POWER",
+          "name": "Powerloom Token",
+          "address": "0x429f0d8233e517f9acf6f0c8293bf35804063a83",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "anime",
+          "symbol": "ANIME",
+          "name": "Animecoin",
+          "address": "0x4dc26fc5854e7648a064a4abd590bbe71724c277",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "god",
+          "symbol": "GOD",
+          "name": "Godcoin",
+          "address": "0xb5130f4767ab0acc579f25a76e8f9e977cb3f948",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "cbbtc",
+          "symbol": "cbBTC",
+          "name": "Coinbase Wrapped BTC",
+          "address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "topia",
+          "symbol": "TOPIA",
+          "name": "TOPIA",
+          "address": "0xccccb68e1a848cbdb5b60a974e07aae143ed40c3",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtc",
+          "symbol": "WBTC",
+          "name": "Wrapped BTC",
+          "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "ape",
+          "symbol": "APE",
+          "name": "ApeCoin",
+          "address": "0x4d224452801aced8b2f0aebe155379bb5d594381",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 5,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "omi",
+          "symbol": "OMI",
+          "name": "Omi",
+          "address": "0xed35af169af46a02ee13b9d79eb57d6d68c1749e",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "dai",
+          "symbol": "DAI",
+          "name": "Dai Stablecoin",
+          "address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "sipher",
+          "symbol": "SIPHER",
+          "name": "Sipher Token",
+          "address": "0x9f52c8ecbee10e00d9faaac5ee9ba0ff6550f511",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "g",
+          "symbol": "G",
+          "name": "Gravity",
+          "address": "0x9c7beba8f6ef6643abd725e45a4e8387ef260649",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/1/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 10,
+      "name": "optimism",
+      "displayName": "Optimism",
+      "httpRpcUrl": "https://optimism.publicnode.com",
+      "wsRpcUrl": "wss://optimism.publicnode.com",
+      "explorerUrl": "https://optimistic.etherscan.io",
+      "explorerName": "Optimism Etherscan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 1,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x4200000000000000000000000000000000000006",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtc",
+          "symbol": "WBTC",
+          "name": "Wrapped BTC",
+          "address": "0x68f180fcce6836688e9084f035309e29bf0a2095",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "sipher",
+          "symbol": "SIPHER",
+          "name": "Sipher",
+          "address": "0xb94944669f7967e16588e55ac41be0d5ef399dcd",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtc",
+          "symbol": "WBTC",
+          "name": "Wrapped BTC",
+          "address": "0x68f180fcce6836688e9084f035309e29bf0a2095",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x4200000000000000000000000000000000000006",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "dai",
+          "symbol": "DAI",
+          "name": "Dai Stablecoin",
+          "address": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/10/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 56,
+      "name": "bnb",
+      "displayName": "BNB",
+      "httpRpcUrl": "https://bsc-rpc.publicnode.com",
+      "wsRpcUrl": "wss://bsc-rpc.publicnode.com",
+      "explorerUrl": "https://bscscan.com",
+      "explorerName": "BscScan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "bnb",
+        "symbol": "BNB",
+        "name": "Binance Coin",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "bnb",
+          "symbol": "BNB",
+          "name": "Binance Coin",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USDCoin",
+          "address": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 50,
+          "depositFee": 10,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x55d398326f99059ff775485246999027b3197955",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "g",
+          "symbol": "G",
+          "name": "Gravity",
+          "address": "0x9c7beba8f6ef6643abd725e45a4e8387ef260649",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USDCoin",
+          "address": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 50,
+          "depositFee": 10,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x55d398326f99059ff775485246999027b3197955",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "dai",
+          "symbol": "DAI",
+          "name": "Dai Stablecoin",
+          "address": "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/56/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 100,
+      "name": "gnosis",
+      "displayName": "Gnosis",
+      "httpRpcUrl": "https://rpc.gnosischain.com/",
+      "wsRpcUrl": "wss://rpc.gnosischain.com/wss",
+      "explorerUrl": "https://gnosisscan.io",
+      "explorerName": "GnosisScan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "dai",
+        "symbol": "xDAI",
+        "name": "xDai",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 0,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "dai",
+          "symbol": "xDAI",
+          "name": "xDai",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/100/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 130,
+      "name": "unichain",
+      "displayName": "Unichain",
+      "httpRpcUrl": "https://mainnet.unichain.org",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://uniscan.xyz",
+      "explorerName": "Unichain Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USDCoin",
+          "address": "0x078d782b760474a361dda0af3839290b0ef57ad6",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USDCoin",
+          "address": "0x078d782b760474a361dda0af3839290b0ef57ad6",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/130/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xb0e22f8b026c5dc4b0bc33ef4c5d3231544aee3e",
+        "onlyOwnerMulticaller": "0x1766d01b0c79337642ced0aae63cae65889f6818",
+        "relayReceiver": "0x47eb64e17a6d2fd559b608695e6d308cced918dd",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 137,
+      "name": "polygon",
+      "displayName": "Polygon",
+      "httpRpcUrl": "https://polygon-bor-rpc.publicnode.com",
+      "wsRpcUrl": "wss://polygon-bor-rpc.publicnode.com",
+      "explorerUrl": "https://polygonscan.com",
+      "explorerName": "PolygonScan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "matic",
+        "symbol": "POL",
+        "name": "POL",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 0,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "matic",
+          "symbol": "POL",
+          "name": "POL",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtc",
+          "symbol": "WBTC",
+          "name": "Wrapped BTC",
+          "address": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "wbtc",
+          "symbol": "WBTC",
+          "name": "Wrapped BTC",
+          "address": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "dai",
+          "symbol": "DAI",
+          "name": "Dai Stablecoin",
+          "address": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/137/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 146,
+      "name": "sonic",
+      "displayName": "Sonic",
+      "httpRpcUrl": "https://rpc.soniclabs.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://sonicscan.org",
+      "explorerName": "Sonic Scan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "s",
+        "symbol": "S",
+        "name": "S",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "s",
+          "symbol": "S",
+          "name": "S",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 8,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 8,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/146/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xe2035a0d568dec7f37b3267823cd9c919e744594",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 169,
+      "name": "manta-pacific",
+      "displayName": "Manta Pacific",
+      "httpRpcUrl": "https://pacific-rpc.manta.network/http",
+      "wsRpcUrl": "wss://pacific-rpc.manta.network/ws",
+      "explorerUrl": "https://pacific-explorer.manta.network",
+      "explorerName": "Manta Pacific explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/169/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x3db750fd20d09f7988b7331f412a516c524caf13",
+        "onlyOwnerMulticaller": "0x41381231d1913e4c1b1c6329f6a125a46866eef6",
+        "relayReceiver": "0xd71e5c1d217d12855b37fe60299273aad91d6cec",
+        "erc20Router": "0x3db750fd20d09f7988b7331f412a516c524caf13",
+        "approvalProxy": "0xaf810080131072968e5cab00b33e6c7df4eb4e71"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": ["New"]
+    },
+    {
+      "id": 185,
+      "name": "mint",
+      "displayName": "Mint",
+      "httpRpcUrl": "https://rpc.mintchain.io",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.mintchain.io",
+      "explorerName": "Mint Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 10,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/185/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 288,
+      "name": "boba",
+      "displayName": "Boba Network",
+      "httpRpcUrl": "https://mainnet.boba.network",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://bobascan.com",
+      "explorerName": "Boba Ecosystem Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/288/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0xB0E22F8B026c5dc4b0Bc33eF4C5d3231544aEE3e",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 324,
+      "name": "zksync",
+      "displayName": "zkSync Era",
+      "httpRpcUrl": "https://mainnet.era.zksync.io",
+      "wsRpcUrl": "wss://mainnet.era.zksync.io/ws",
+      "explorerUrl": "https://explorer.zksync.io",
+      "explorerName": "zkSync Era Block Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 1,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/324/light.png",
+      "contracts": {
+        "multicall3": "0xf9cda624fbc7e059355ce98a31693d299facd963",
+        "multicaller": "",
+        "onlyOwnerMulticaller": "0xef4cc35e976886480837ca4fa88161187f5822da",
+        "relayReceiver": "0xebd1e414ebb98522cfd932104ba41fac10a4ef35",
+        "erc20Router": "0x0649F2dAa72a6524f0eb7f5f65e13CFfc8082b10",
+        "approvalProxy": "0x187d5c41C2423A40F68df1A5c561A5f2E1BAaA98"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 360,
+      "name": "shape",
+      "displayName": "Shape",
+      "httpRpcUrl": "https://mainnet.shape.network",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://shapescan.xyz",
+      "explorerName": "Shape Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 10,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/360/light.png",
+      "logoUrl": "https://assets.relay.link/icons/logos/shape.png",
+      "brandColor": "#000000",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 466,
+      "name": "appchain",
+      "displayName": "AppChain",
+      "httpRpcUrl": "https://appchain.calderachain.xyz/http",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.appchain.xyz",
+      "explorerName": "AppChain Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 25,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x675c3ce7f43b00045a4dab954af36160fb57cb45",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x675c3ce7f43b00045a4dab954af36160fb57cb45",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/466/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xe2035a0d568dec7f37b3267823cd9c919e744594",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 480,
+      "name": "world-chain",
+      "displayName": "World Chain",
+      "httpRpcUrl": "https://worldchain-mainnet.gateway.tenderly.co",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://worldscan.org",
+      "explorerName": "World Chain Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/480/light.png",
+      "logoUrl": "https://assets.relay.link/icons/logos/world-chain.png",
+      "brandColor": "#000000",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xfdfb8ae5d2f22a6c3ca37aba03af3d68afc2da68",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 690,
+      "name": "redstone",
+      "displayName": "Redstone",
+      "httpRpcUrl": "https://rpc.redstonechain.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.redstone.xyz",
+      "explorerName": "Redstone Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/690/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x00000000aa467eba42a3d604b3d74d63b2b6c6cb",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 747,
+      "name": "flow-evm",
+      "displayName": "Flow EVM",
+      "httpRpcUrl": "https://mainnet.evm.nodes.onflow.org",
+      "wsRpcUrl": "wss://mainnet.evm.nodes.onflow.org",
+      "explorerUrl": "https://evm.flowscan.io",
+      "explorerName": "EVM on Flow Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "flow",
+        "symbol": "FLOW",
+        "name": "FLOW Token",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "flow",
+          "symbol": "FLOW",
+          "name": "FLOW Token",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "Bridged USDC (Stargate)",
+          "address": "0xf1815bd50389c46847f0bda824ec8da914045d14",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 10,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "Bridged USDC (Stargate)",
+          "address": "0xf1815bd50389c46847f0bda824ec8da914045d14",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 10,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/747/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xad7912d17cfb9158d05f534d7f7da25a33976455",
+        "onlyOwnerMulticaller": "0x8fb09b51ee3bf5208074b9a6ff284282b2e7e1e4",
+        "relayReceiver": "0xb4528b01af9c92f49435f88890a82b0b0ce90479",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 999,
+      "name": "hyperevm",
+      "displayName": "HyperEVM",
+      "httpRpcUrl": "https://rpc.hyperliquid.xyz/evm",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://hyperliquid.cloud.blockscout.com",
+      "explorerName": "HyperEVM Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "hype",
+        "symbol": "HYPE",
+        "name": "HYPE",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 25,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "hype",
+          "symbol": "HYPE",
+          "name": "HYPE",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "weth",
+          "symbol": "ETH",
+          "name": "Wrapped Ether",
+          "address": "0x1fbccdc677c10671ee50b46c61f0f7d135112450",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 5,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/999/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x6355d84b39b9a2c49a94a079ec66694612994080",
+        "onlyOwnerMulticaller": "0xad330c234598452891f64701f3c01a2682bde6dd",
+        "relayReceiver": "0xd71e5c1d217d12855b37fe60299273aad91d6cec",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1088,
+      "name": "metis",
+      "displayName": "Metis",
+      "httpRpcUrl": "https://metis-rpc.publicnode.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.metis.io",
+      "explorerName": "Metis Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "metis",
+        "symbol": "METIS",
+        "name": "METIS",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 25,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "metis",
+          "symbol": "METIS",
+          "name": "METIS",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x420000000000000000000000000000000000000a",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/1088/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xcd18f12c9424cb072c28137691c993ecb2f8b925",
+        "onlyOwnerMulticaller": "0xd8afcda5f4e509697cbf084482d3254d3b49b45b",
+        "relayReceiver": "0xc56043daac3a26ad451abc7610f04f53cc4412e5",
+        "erc20Router": "0x6b7b5e5a75eb1c26689618c571143d255694c134",
+        "approvalProxy": "0x82b3995ebe539cbed760be089e33484fe12830f9"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1101,
+      "name": "polygon-zkevm",
+      "displayName": "Polygon zkEVM",
+      "httpRpcUrl": "https://rpc.ankr.com/polygon_zkevm",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://zkevm.polygonscan.com",
+      "explorerName": "Polygon zkEVM Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/1101/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1135,
+      "name": "lisk",
+      "displayName": "Lisk",
+      "httpRpcUrl": "https://rpc.api.lisk.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://blockscout.lisk.com",
+      "explorerName": "Lisk Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 10,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/1135/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1329,
+      "name": "sei",
+      "displayName": "sei",
+      "httpRpcUrl": "https://evm-rpc.sei-apis.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://seitrace.com",
+      "explorerName": "Sei Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": true,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "sei",
+        "symbol": "SEI",
+        "name": "Sei",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 100,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "sei",
+          "symbol": "SEI",
+          "name": "Sei",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x3894085ef7ff0f0aedf52e2a2704928d1ec074f1",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 8,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x3894085ef7ff0f0aedf52e2a2704928d1ec074f1",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 8,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/1329/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1424,
+      "name": "perennial",
+      "displayName": "Perennial",
+      "httpRpcUrl": "https://rpc-perennial-lsv53i0ed8.t.conduit.xyz",
+      "wsRpcUrl": "wss://rpc-perennial-lsv53i0ed8.t.conduit.xyz",
+      "explorerUrl": "https://explorer.perennial.foundation",
+      "explorerName": "Perennial Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 25,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x39cd9ef9e511ec008247ad5da01245d84a9521be",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x39cd9ef9e511ec008247ad5da01245d84a9521be",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/1424/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0xaff6262d30e7746020453a5433749158c20635c7",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x4d6cb5047925e06d2cd6ca72ca30a413c77e1203",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 8453,
+      "tags": []
+    },
+    {
+      "id": 1514,
+      "name": "story",
+      "displayName": "Story",
+      "httpRpcUrl": "https://mainnet.storyrpc.io",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://storyscan.xyz",
+      "explorerName": "Story Scan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "ip",
+        "symbol": "IP",
+        "name": "IP",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "ip",
+          "symbol": "IP",
+          "name": "IP",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xf1815bd50389c46847f0bda824ec8da914045d14",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xf1815bd50389c46847f0bda824ec8da914045d14",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0xbab93b7ad7fe8692a878b95a8e689423437cc500",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/1514/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1625,
+      "name": "gravity",
+      "displayName": "Gravity",
+      "httpRpcUrl": "https://rpc.gravity.xyz",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.gravity.xyz",
+      "explorerName": "Gravity Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "g",
+        "symbol": "G",
+        "name": "Gravity",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 100,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "g",
+          "symbol": "G",
+          "name": "Gravity",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/1625/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xe2035a0d568dec7f37b3267823cd9c919e744594",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1868,
+      "name": "soneium",
+      "displayName": "Soneium",
+      "httpRpcUrl": "https://rpc.soneium.org/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://soneium.blockscout.com",
+      "explorerName": "Soneium Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 10,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC.e",
+          "name": "Bridged USDC (Soneium)",
+          "address": "0xba9986d2381edf1da03b0b9c1f8b00dc4aacc369",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC.e",
+          "name": "Bridged USDC (Soneium)",
+          "address": "0xba9986d2381edf1da03b0b9c1f8b00dc4aacc369",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/1868/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xe2035a0d568dec7f37b3267823cd9c919e744594",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1923,
+      "name": "swellchain",
+      "displayName": "SwellChain",
+      "httpRpcUrl": "https://swell-mainnet.alt.technology",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.swellnetwork.io",
+      "explorerName": "Swell Chain explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/1923/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x3db750fd20d09f7988b7331f412a516c524caf13",
+        "onlyOwnerMulticaller": "0x41381231d1913e4c1b1c6329f6a125a46866eef6",
+        "relayReceiver": "0xf042fcc6bd5cb48b2862d9f22d3de5b342e94f4c",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1996,
+      "name": "sanko",
+      "displayName": "Sanko",
+      "httpRpcUrl": "https://mainnet.sanko.xyz",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.sanko.xyz",
+      "explorerName": "Sanko Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "dmt",
+        "symbol": "DMT",
+        "name": "DMT",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "dmt",
+          "symbol": "DMT",
+          "name": "DMT",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/1996/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xe2035a0d568dec7f37b3267823cd9c919e744594",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 42161,
+      "tags": []
+    },
+    {
+      "id": 2020,
+      "name": "ronin",
+      "displayName": "Ronin",
+      "httpRpcUrl": "https://api.roninchain.com/rpc",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://app.roninchain.com",
+      "explorerName": "Ronin Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "ron",
+        "symbol": "RON",
+        "name": "RON",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "ron",
+          "symbol": "RON",
+          "name": "RON",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x0b7007c13325c48911f73a2dad5fa5dcbf808adc",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 15,
+          "depositFee": 5,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x0b7007c13325c48911f73a2dad5fa5dcbf808adc",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 15,
+          "depositFee": 5,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/2020/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x000000000022d473030f116ddee9f6b43ac78ba3",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xe377e13256002Ab260E8AB59478652710a79ac5C",
+        "approvalProxy": "0xA49531e73bc8cc52d0E2fd50d6ADb94544acD3c6"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 2187,
+      "name": "game7",
+      "displayName": "G7 Network",
+      "httpRpcUrl": "https://mainnet-rpc.game7.io/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://mainnet.game7.io",
+      "explorerName": "G7 Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "g7",
+        "symbol": "G7",
+        "name": "G7",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "g7",
+          "symbol": "G7",
+          "name": "G7",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x401ecb1d350407f13ba348573e5630b83638e30d",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x401ecb1d350407f13ba348573e5630b83638e30d",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/2187/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 42161,
+      "tags": []
+    },
+    {
+      "id": 2741,
+      "name": "abstract",
+      "displayName": "Abstract",
+      "httpRpcUrl": "https://rpc.fsd.adfasd32442ds.com/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://abscan.org",
+      "explorerName": "Abstract Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 6,
+      "depositFee": 4,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 4,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "pengu",
+          "symbol": "PENGU",
+          "name": "Pudgy Penguins",
+          "address": "0x9ebe3a824ca958e4b3da772d2065518f009cba62",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/2741/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xc6ee4f68126da8d707f875d3ff854445e5aa7cb3",
+        "onlyOwnerMulticaller": "0xfbeb05d2db2427d293524a98770df0d11292ecb4",
+        "relayReceiver": "0x634e831ce6d460c2cd5067af98d6452eb280e374",
+        "erc20Router": "0x0649F2dAa72a6524f0eb7f5f65e13CFfc8082b10",
+        "approvalProxy": "0x187d5c41C2423A40F68df1A5c561A5f2E1BAaA98"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 2911,
+      "name": "hychain",
+      "displayName": "Hychain",
+      "httpRpcUrl": "https://rpc.hychain.com/http",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.hychain.com",
+      "explorerName": "Hychain Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "topia",
+        "symbol": "TOPIA",
+        "name": "TOPIA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "topia",
+          "symbol": "TOPIA",
+          "name": "TOPIA",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/2911/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 4321,
+      "name": "echos",
+      "displayName": "Echos",
+      "httpRpcUrl": "https://rpc-echos-mainnet-0.t.conduit.xyz",
+      "wsRpcUrl": "wss://rpc-echos-mainnet-0.t.conduit.xyz",
+      "explorerUrl": "https://explorer-echos-mainnet-0.t.conduit.xyz",
+      "explorerName": "Blockscout",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "usdc",
+        "symbol": "USDC",
+        "name": "USD Coin",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 100,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/4321/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x6355d84b39b9a2c49a94a079ec66694612994080",
+        "onlyOwnerMulticaller": "0xad330c234598452891f64701f3c01a2682bde6dd",
+        "relayReceiver": "0xd71e5c1d217d12855b37fe60299273aad91d6cec",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 8453,
+      "tags": []
+    },
+    {
+      "id": 5000,
+      "name": "mantle",
+      "displayName": "Mantle",
+      "httpRpcUrl": "https://rpc.mantle.xyz",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://mantlescan.xyz",
+      "explorerName": "Mantle Scan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "mnt",
+        "symbol": "MNT",
+        "name": "MNT",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 100,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "mnt",
+          "symbol": "MNT",
+          "name": "MNT",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/5000/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0x49015fbfd51aa67c369afa01c0d808b58c9c590e",
+        "relayReceiver": "0xf366da269047a06a7275a933c6d653409bd6de5e",
+        "erc20Router": "0xf7dc16a5b374f5a7b70e601f1b96bdcf69840832",
+        "approvalProxy": "0x9d6dc4a2f637e68393fe4edf7969882d7a1a485c"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 5112,
+      "name": "ham",
+      "displayName": "Ham",
+      "httpRpcUrl": "https://rpc.ham.fun",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.ham.fun",
+      "explorerName": "Ham Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": true,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": true
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/5112/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xa1bea5fe917450041748dbbbe7e9ac57a4bbebab",
+        "approvalProxy": "0x77a917df7a084b7b3e43517ae28373c2a5492625"
+      },
+      "vmType": "evm",
+      "baseChainId": 8453,
+      "tags": []
+    },
+    {
+      "id": 5330,
+      "name": "superseed",
+      "displayName": "Superseed",
+      "httpRpcUrl": "https://mainnet.superseed.xyz",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.superseed.xyz",
+      "explorerName": "Superseed Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 25,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/5330/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xe2035a0d568dec7f37b3267823cd9c919e744594",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0x836caf2409d91df0bda01bc9f3cec524ba1c571d",
+        "approvalProxy": "0x3b9b83f706afb88f6e3f923a829cd70a2ac28f91"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 7560,
+      "name": "cyber",
+      "displayName": "Cyber",
+      "httpRpcUrl": "https://cyber.alt.technology/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://cyberscan.co",
+      "explorerName": "Cyber Scan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/7560/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 7869,
+      "name": "powerloom-v2",
+      "displayName": "Powerloom v2",
+      "httpRpcUrl": "https://rpc-v2.powerloom.network",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer-v2.powerloom.network",
+      "explorerName": "Powerloom Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "power",
+        "symbol": "POWER",
+        "name": "Powerloom Token",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "power",
+          "symbol": "POWER",
+          "name": "Powerloom Token",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/7869/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x6355d84b39b9a2c49a94a079ec66694612994080",
+        "onlyOwnerMulticaller": "0xad330c234598452891f64701f3c01a2682bde6dd",
+        "relayReceiver": "0xd71e5c1d217d12855b37fe60299273aad91d6cec",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 7897,
+      "name": "arena-z",
+      "displayName": "Arena-Z",
+      "httpRpcUrl": "https://rpc.arena-z.gg",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.arena-z.gg",
+      "explorerName": "Arena-Z Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/7897/light.png",
+      "logoUrl": "https://assets.relay.link/icons/logos/arena-z.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 8333,
+      "name": "B3",
+      "displayName": "B3",
+      "httpRpcUrl": "https://mainnet-rpc.b3.fun/http",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.b3.fun",
+      "explorerName": "B3 Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x2af198a85f9aa11cd6042a0596fbf23978514da3",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x2af198a85f9aa11cd6042a0596fbf23978514da3",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/8333/light.png",
+      "logoUrl": "https://cdn.b3.fun/b3_logo%40.png",
+      "brandColor": "#3368ef",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 8453,
+      "tags": []
+    },
+    {
+      "id": 8453,
+      "name": "base",
+      "displayName": "Base",
+      "httpRpcUrl": "https://base.publicnode.com",
+      "wsRpcUrl": "wss://base.publicnode.com",
+      "explorerUrl": "https://basescan.org",
+      "explorerName": "BaseScan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 1,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x4200000000000000000000000000000000000006",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "degen",
+          "symbol": "DEGEN",
+          "name": "Degen",
+          "address": "0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x4200000000000000000000000000000000000006",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "god",
+          "symbol": "GOD",
+          "name": "Godcoin",
+          "address": "0xb5130f4767ab0acc579f25a76e8f9e977cb3f948",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "degen",
+          "symbol": "DEGEN",
+          "name": "Degen",
+          "address": "0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "pop",
+          "symbol": "POP",
+          "name": "OnchainPoints.xyz",
+          "address": "0xc9ef0e04038f64d6f759bd73b4b1cb6c78c59daa",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "cbbtc",
+          "symbol": "cbBTC",
+          "name": "Coinbase Wrapped BTC",
+          "address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "lrds",
+          "symbol": "LRDS",
+          "name": "Blocklords",
+          "address": "0xb676f87a6e701f0de8de5ab91b56b66109766db1",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "omi",
+          "symbol": "OMI",
+          "name": "OMI Token",
+          "address": "0x3792dbdd07e87413247df995e692806aa13d3299",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "dai",
+          "symbol": "DAI",
+          "name": "Dai Stablecoin",
+          "address": "0x50c5725949a6f0c72e6c4a641f24049a917db0cb",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "sipher",
+          "symbol": "SIPHER",
+          "name": "Sipher",
+          "address": "0xd0d1e44fc9adaeb732f73ffc2429cd1db9cd4529",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/8453/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 17071,
+      "name": "onchain-points",
+      "displayName": "Onchain Points",
+      "httpRpcUrl": "https://rpc-onchain-points-8n0qkkpr2j.t.conduit.xyz",
+      "wsRpcUrl": "wss://rpc-onchain-points-8n0qkkpr2j.t.conduit.xyz",
+      "explorerUrl": "https://explorer.onchainpoints.xyz",
+      "explorerName": "Onchain Points Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "pop",
+        "symbol": "POP",
+        "name": "OnchainPoints",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 25,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "pop",
+          "symbol": "POP",
+          "name": "OnchainPoints",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 25,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/17071/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbFD66b11411Ee7694eF37E6E72",
+        "relayReceiver": "0xa06e1351E2fD2D45b5D35633ca7eCF328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 8453,
+      "tags": []
+    },
+    {
+      "id": 33139,
+      "name": "apechain",
+      "displayName": "Ape Chain",
+      "httpRpcUrl": "https://apechain.calderachain.xyz/http",
+      "wsRpcUrl": "wss://apechain.calderachain.xyz/ws",
+      "explorerUrl": "https://apescan.io",
+      "explorerName": "ApeChain Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "ape",
+        "symbol": "APE",
+        "name": "ApeCoin",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 10,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "ape",
+          "symbol": "APE",
+          "name": "ApeCoin",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 10,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "apeeth",
+          "symbol": "ApeETH",
+          "name": "Ape ETH",
+          "address": "0xcf800f4948d16f23333508191b1b1591daf70438",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/33139/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 42161,
+      "tags": []
+    },
+    {
+      "id": 33979,
+      "name": "funki",
+      "displayName": "Funkichain",
+      "httpRpcUrl": "https://rpc-mainnet.funkichain.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://funkiscan.io",
+      "explorerName": "Funkiscan",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "Bridged USDC",
+          "address": "0x747459b4b46453bcf52d27e7e243e40305238ef5",
+          "decimals": 6,
+          "supportsBridging": false,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xcdf4cf03add9b9c086e01868d2eb8526b96df58f",
+          "decimals": 6,
+          "supportsBridging": false,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "sipher",
+          "symbol": "SIPHER",
+          "name": "Sipher",
+          "address": "0x7d8b6cec10165119c4ac7843a1e02184789585d8",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/33979/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0xB0E22F8B026c5dc4b0Bc33eF4C5d3231544aEE3e",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 34443,
+      "name": "mode",
+      "displayName": "Mode",
+      "httpRpcUrl": "https://mainnet.mode.network/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.mode.network",
+      "explorerName": "Mode Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "Bridged USDC",
+          "address": "0xd988097fb8612cc24eec14542bc03424c656005f",
+          "decimals": 6,
+          "supportsBridging": false,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "Bridged USDC",
+          "address": "0xd988097fb8612cc24eec14542bc03424c656005f",
+          "decimals": 6,
+          "supportsBridging": false,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/34443/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 42161,
+      "name": "arbitrum",
+      "displayName": "Arbitrum",
+      "httpRpcUrl": "https://arbitrum-one.publicnode.com",
+      "wsRpcUrl": "wss://arbitrum-one.publicnode.com",
+      "explorerUrl": "https://arbiscan.io",
+      "explorerName": "Arbiscan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 1,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtc",
+          "symbol": "WBTC",
+          "name": "Wrapped BTC",
+          "address": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "xai",
+          "symbol": "XAI",
+          "name": "Xai",
+          "address": "0x4cb9a7ae498cedcbb5eae9f25736ae7d428c9d66",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "g7",
+          "symbol": "G7",
+          "name": "G7",
+          "address": "0xf18e4466f26b4ca55bbab890b314a54976e45b17",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "xai",
+          "symbol": "XAI",
+          "name": "Xai",
+          "address": "0x4cb9a7ae498cedcbb5eae9f25736ae7d428c9d66",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "anime",
+          "symbol": "ANIME",
+          "name": "Animecoin",
+          "address": "0x37a645648df29205c6261289983fb04ecd70b4b3",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "cbbtc",
+          "symbol": "cbBTC",
+          "name": "Coinbase Wrapped BTC",
+          "address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "dmt",
+          "symbol": "DMT",
+          "name": "DMT",
+          "address": "0x8b0e6f19ee57089f7649a455d89d7bc6314d04e8",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "ape",
+          "symbol": "APE",
+          "name": "ApeCoin",
+          "address": "0x7f9fbf9bdd3f4105c478b996b648fe6e828a1e98",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 10,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtc",
+          "symbol": "WBTC",
+          "name": "Wrapped BTC",
+          "address": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/42161/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 42170,
+      "name": "arbitrum-nova",
+      "displayName": "Arbitrum Nova",
+      "httpRpcUrl": "https://arbitrum-nova.publicnode.com",
+      "wsRpcUrl": "wss://arbitrum-nova.publicnode.com",
+      "explorerUrl": "https://nova.arbiscan.io",
+      "explorerName": "Nova Arbiscan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "god",
+          "symbol": "GOD",
+          "name": "Godcoin",
+          "address": "0xb5130f4767ab0acc579f25a76e8f9e977cb3f948",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/42170/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 42220,
+      "name": "celo",
+      "displayName": "Celo",
+      "httpRpcUrl": "https://forno.celo.org",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://celoscan.io",
+      "explorerName": "Celo Scan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "celo",
+        "symbol": "CELO",
+        "name": "CELO",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "celo",
+          "symbol": "CELO",
+          "name": "CELO",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USDCoin",
+          "address": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USDCoin",
+          "address": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/42220/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x233efb8d94e4e3b6ba5cd7bac008d2c33900d1d5",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbFD66b11411Ee7694eF37E6E72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0x77f3e71ef71e66937c84d4fdd935504b44646f70",
+        "approvalProxy": "0x1459e4a73c6abd19aca2bc50b30d3f1ed229a329"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 43111,
+      "name": "hemi",
+      "displayName": "Hemi",
+      "httpRpcUrl": "https://rpc.hemi.network/rpc",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.hemi.xyz",
+      "explorerName": "Hemi Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/43111/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xe2035a0d568dec7f37b3267823cd9c919e744594",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 43114,
+      "name": "avalanche",
+      "displayName": "Avalanche",
+      "httpRpcUrl": "https://api.avax.network/ext/bc/C/rpc",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://snowtrace.io",
+      "explorerName": "Snowtrace",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "avax",
+        "symbol": "AVAX",
+        "name": "Avax",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 0,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "avax",
+          "symbol": "AVAX",
+          "name": "Avax",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/43114/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbFD66b11411Ee7694eF37E6E72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xe0b062d028236fa09fe33db8019ffeeee6bf79ed",
+        "approvalProxy": "0xfd06c0018318bf78705ccff2b961ef8ebc0baca0"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 48900,
+      "name": "zircuit",
+      "displayName": "Zircuit",
+      "httpRpcUrl": "https://mainnet.zircuit.com",
+      "wsRpcUrl": "wss://mainnet.zircuit.com",
+      "explorerUrl": "https://explorer.zircuit.com",
+      "explorerName": "Zircuit Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/48900/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xad7912d17cfb9158d05f534d7f7da25a33976455",
+        "onlyOwnerMulticaller": "0x8fb09b51ee3bf5208074b9a6ff284282b2e7e1e4",
+        "relayReceiver": "0xb4528b01af9c92f49435f88890a82b0b0ce90479",
+        "erc20Router": "0x57732abcad29648c977c18a39bdf474436bba973",
+        "approvalProxy": "0x4bfb84b92e7420c104f24cee4a72174d04f28ee0"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 55244,
+      "name": "superposition",
+      "displayName": "Superposition",
+      "httpRpcUrl": "https://rpc.superposition.so",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.superposition.so",
+      "explorerName": "Superposition Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 100,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/55244/light.png",
+      "logoUrl": "https://assets.relay.link/icons/logos/superposition.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 42161,
+      "tags": []
+    },
+    {
+      "id": 57073,
+      "name": "ink",
+      "displayName": "Ink",
+      "httpRpcUrl": "https://rpc-gel.inkonchain.com/fd96af67f38f4bf8a137b167171eeddd",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.inkonchain.com",
+      "explorerName": "Ink Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 25,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/57073/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0xe2035a0d568dec7f37b3267823cd9c919e744594",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 59144,
+      "name": "linea",
+      "displayName": "Linea",
+      "httpRpcUrl": "https://rpc.linea.build",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://lineascan.build",
+      "explorerName": "Lineascan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 1,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/59144/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x00000000aa467eba42a3d604b3d74d63b2b6c6cb",
+        "erc20Router": "0xe0b062d028236fa09fe33db8019ffeeee6bf79ed",
+        "approvalProxy": "0xfD06C0018318BF78705ccFf2b961Ef8eBC0bacA0"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 60808,
+      "name": "bob",
+      "displayName": "BOB",
+      "httpRpcUrl": "https://rpc.gobob.xyz/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.gobob.xyz",
+      "explorerName": "BOB Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 100,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/60808/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x00000000aa467eba42a3d604b3d74d63b2b6c6cb",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 70700,
+      "name": "apex",
+      "displayName": "Proof of Play Apex",
+      "httpRpcUrl": "https://rpc.apex.proofofplay.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.apex.proofofplay.com",
+      "explorerName": "Proof of Play Apex Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": true,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": true
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/70700/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xe0b062d028236fa09fe33db8019ffeeee6bf79ed",
+        "approvalProxy": "0xfd06c0018318bf78705ccff2b961ef8ebc0baca0"
+      },
+      "vmType": "evm",
+      "baseChainId": 42161,
+      "tags": []
+    },
+    {
+      "id": 70701,
+      "name": "boss",
+      "displayName": "Proof of Play Boss",
+      "httpRpcUrl": "https://rpc.boss.proofofplay.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.boss.proofofplay.com",
+      "explorerName": "Boss Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/70701/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbFD66b11411Ee7694eF37E6E72",
+        "relayReceiver": "0xa06e1351E2fD2D45b5D35633ca7eCF328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 42161,
+      "tags": []
+    },
+    {
+      "id": 80094,
+      "name": "berachain",
+      "displayName": "Berachain",
+      "httpRpcUrl": "https://rpc.berachain.com/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://beratrail.io",
+      "explorerName": "Berachain Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "bera",
+        "symbol": "BERA",
+        "name": "BERA Token",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 5,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "bera",
+          "symbol": "BERA",
+          "name": "BERA Token",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x549943e04f40284185054145c6e4e9568c1d3241",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 5,
+          "depositFee": 8,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x549943e04f40284185054145c6e4e9568c1d3241",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 5,
+          "depositFee": 8,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/80094/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x6355d84b39b9a2c49a94a079ec66694612994080",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x7f4babd2c7d35221e72ab67ea72cba99573a0089",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 81457,
+      "name": "blast",
+      "displayName": "Blast",
+      "httpRpcUrl": "https://rpc.blast.io/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://blastscan.io",
+      "explorerName": "BlastScan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x4300000000000000000000000000000000000004",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "weth",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "address": "0x4300000000000000000000000000000000000004",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/81457/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 167000,
+      "name": "taiko",
+      "displayName": "Taiko",
+      "httpRpcUrl": "https://rpc.mainnet.taiko.xyz",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://taikoscan.io",
+      "explorerName": "Taikoscan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/167000/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbFD66b11411Ee7694eF37E6E72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0x6b7b5e5a75eb1c26689618c571143d255694c134",
+        "approvalProxy": "0x82b3995ebe539cbed760be089e33484fe12830f9"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 534352,
+      "name": "scroll",
+      "displayName": "Scroll",
+      "httpRpcUrl": "https://rpc.scroll.io/",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://scrollscan.com",
+      "explorerName": "Scroll Scan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 1,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/534352/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x00000000aa467eba42a3d604b3d74d63b2b6c6cb",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 543210,
+      "name": "zero-network",
+      "displayName": "ZERO",
+      "httpRpcUrl": "https://zero-network.calderachain.xyz",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.zero.network",
+      "explorerName": "Zero Network Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 25,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x6a6394f47dd0baf794808f2749c09bd4ee874e70",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0x6a6394f47dd0baf794808f2749c09bd4ee874e70",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/543210/light.png",
+      "contracts": {
+        "multicall3": "0xba32f4ff6259624e73eba04af6ee4ecfa6e62988",
+        "multicaller": "",
+        "onlyOwnerMulticaller": "0xef4cc35e976886480837ca4fa88161187f5822da",
+        "relayReceiver": "0x634e831ce6d460c2cd5067af98d6452eb280e374",
+        "erc20Router": "0x196536f8B022dB1Cd5460a40AbeF3a10F5ec1926",
+        "approvalProxy": "0x16787969c2c35a6ccB0970B48dC865E7Ff3e368e"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 660279,
+      "name": "xai",
+      "displayName": "Xai",
+      "httpRpcUrl": "https://xai-chain.net/rpc",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.xai-chain.net",
+      "explorerName": "Xai Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "xai",
+        "symbol": "XAI",
+        "name": "Xai",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 100,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "xai",
+          "symbol": "XAI",
+          "name": "Xai",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/660279/light.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xe0b062d028236fa09fe33db8019ffeeee6bf79ed",
+        "approvalProxy": "0xfd06c0018318bf78705ccff2b961ef8ebc0baca0"
+      },
+      "vmType": "evm",
+      "baseChainId": 42161,
+      "tags": []
+    },
+    {
+      "id": 984122,
+      "name": "forma",
+      "displayName": "Forma",
+      "httpRpcUrl": "https://rpc.forma.art",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.forma.art",
+      "explorerName": "Forma Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "tia",
+        "symbol": "TIA",
+        "name": "Celestia",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 100,
+      "depositFee": 40,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "tia",
+          "symbol": "TIA",
+          "name": "Celestia",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 100,
+          "depositFee": 40,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/984122/light.png",
+      "logoUrl": "https://forma.art/HorizontalLogo.png",
+      "brandColor": "#000000",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xe0b062d028236fa09fe33db8019ffeeee6bf79ed",
+        "approvalProxy": "0xfd06c0018318bf78705ccff2b961ef8ebc0baca0"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 7777777,
+      "name": "zora",
+      "displayName": "Zora",
+      "httpRpcUrl": "https://rpc.zora.co/",
+      "wsRpcUrl": "wss://rpc.zora.co/",
+      "explorerUrl": "https://explorer.zora.energy",
+      "explorerName": "Zora Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDzC",
+          "name": "USD Coin (Bridged from Ethereum)",
+          "address": "0xcccccccc7021b32ebb4e8c08314bd62f7c653ec4",
+          "decimals": 6,
+          "supportsBridging": false,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDzC",
+          "name": "USD Coin (Bridged from Ethereum)",
+          "address": "0xcccccccc7021b32ebb4e8c08314bd62f7c653ec4",
+          "decimals": 6,
+          "supportsBridging": false,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/7777777/light.png",
+      "logoUrl": "https://assets.relay.link/icons/logos/zora.png",
+      "contracts": {
+        "multicall3": "0xca11bde05977b3631167028862be2a173976ca11",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 8253038,
+      "name": "bitcoin",
+      "displayName": "Bitcoin",
+      "httpRpcUrl": "https://bitcoin-mainnet.public.blastapi.io",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://mempool.space",
+      "explorerName": "MempoolSpace",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "btc",
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "address": "bc1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmql8k8",
+        "decimals": 8,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 100,
+      "depositFee": 100,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "btc",
+          "symbol": "BTC",
+          "name": "Bitcoin",
+          "address": "bc1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmql8k8",
+          "decimals": 8,
+          "supportsBridging": true,
+          "withdrawalFee": 100,
+          "depositFee": 100,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/8253038/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "",
+        "onlyOwnerMulticaller": "",
+        "relayReceiver": "",
+        "erc20Router": "",
+        "approvalProxy": ""
+      },
+      "vmType": "bvm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 9286185,
+      "name": "eclipse",
+      "displayName": "Eclipse",
+      "httpRpcUrl": "https://mainnetbeta-rpc.eclipse.xyz",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://eclipsescan.xyz",
+      "explorerName": "Eclipse Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "11111111111111111111111111111111",
+        "decimals": 9,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": true,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "11111111111111111111111111111111",
+          "decimals": 9,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": true
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/9286185/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "",
+        "onlyOwnerMulticaller": "",
+        "relayReceiver": "",
+        "erc20Router": "",
+        "approvalProxy": ""
+      },
+      "vmType": "svm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 9286186,
+      "name": "soon",
+      "displayName": "Soon",
+      "httpRpcUrl": "https://rpc.mainnet.soo.network/rpc",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.soo.network",
+      "explorerName": "Soon Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "11111111111111111111111111111111",
+        "decimals": 9,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "11111111111111111111111111111111",
+          "decimals": 9,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/9286186/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "",
+        "onlyOwnerMulticaller": "",
+        "relayReceiver": "",
+        "erc20Router": "",
+        "approvalProxy": ""
+      },
+      "vmType": "svm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 21000000,
+      "name": "corn",
+      "displayName": "Corn",
+      "httpRpcUrl": "https://mainnet.corn-rpc.com",
+      "wsRpcUrl": "wss://mainnet.corn-rpc.com",
+      "explorerUrl": "https://cornscan.io",
+      "explorerName": "Corn Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "btcn",
+        "symbol": "BTCN",
+        "name": "Bitcorn",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "btcn",
+          "symbol": "BTCN",
+          "name": "Bitcorn",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xdf0b24095e15044538866576754f3c964e902ee6",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 5,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtcn",
+          "symbol": "WBTCN",
+          "name": "Wrapped Bitcorn",
+          "address": "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "0xdf0b24095e15044538866576754f3c964e902ee6",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 5,
+          "surgeEnabled": false
+        },
+        {
+          "id": "wbtcn",
+          "symbol": "WBTCN",
+          "name": "Wrapped Bitcorn",
+          "address": "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/21000000/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x6355d84b39b9a2c49a94a079ec66694612994080",
+        "onlyOwnerMulticaller": "0xad330c234598452891f64701f3c01a2682bde6dd",
+        "relayReceiver": "0xd71e5c1d217d12855b37fe60299273aad91d6cec",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 666666666,
+      "name": "degen",
+      "displayName": "Degen",
+      "httpRpcUrl": "https://degen-mainnet.g.alchemy.com/v2/XhxnlzezvsYcwrR1oYrhCP9D3H6q1_kh",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://explorer.degen.tips",
+      "explorerName": "Degen Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "degen",
+        "symbol": "DEGEN",
+        "name": "Degen",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 100,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "degen",
+          "symbol": "DEGEN",
+          "name": "Degen",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 100,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/666666666/light.png",
+      "contracts": {
+        "multicall3": "0x79035dc4436ba9c95016d3bf6304e5ba78b1066a",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa06e1351e2fd2d45b5d35633ca7ecf328684a109",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 8453,
+      "tags": []
+    },
+    {
+      "id": 728126428,
+      "name": "tron",
+      "displayName": "Tron",
+      "httpRpcUrl": "https://api.trongrid.io/jsonrpc",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://tronscan.org/#",
+      "explorerName": "tronscan",
+      "explorerPaths": { "transaction": "/transaction/{TX_HASH}" },
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "trx",
+        "symbol": "TRX",
+        "name": "TRX",
+        "address": "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+        "decimals": 6,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 75,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "trx",
+          "symbol": "TRX",
+          "name": "TRX",
+          "address": "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "usdt",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/728126428/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "",
+        "onlyOwnerMulticaller": "",
+        "relayReceiver": "",
+        "erc20Router": "",
+        "approvalProxy": ""
+      },
+      "vmType": "tvm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 792703809,
+      "name": "solana",
+      "displayName": "Solana",
+      "httpRpcUrl": "https://api.mainnet-beta.solana.com",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://solscan.io",
+      "explorerName": "SolScan",
+      "depositEnabled": true,
+      "tokenSupport": "All",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "sol",
+        "symbol": "SOL",
+        "name": "Solana",
+        "address": "11111111111111111111111111111111",
+        "decimals": 9,
+        "supportsBridging": false
+      },
+      "withdrawalFee": 0,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "sol",
+          "symbol": "SOL",
+          "name": "Solana",
+          "address": "11111111111111111111111111111111",
+          "decimals": 9,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 5,
+          "depositFee": 2,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [
+        {
+          "id": "pengu",
+          "symbol": "PENGU",
+          "name": "Pudgy Penguins",
+          "address": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv",
+          "decimals": 6,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        },
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "decimals": 6,
+          "supportsBridging": true,
+          "supportsPermit": true,
+          "withdrawalFee": 5,
+          "depositFee": 2,
+          "surgeEnabled": false
+        }
+      ],
+      "iconUrl": "https://assets.relay.link/icons/792703809/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "",
+        "onlyOwnerMulticaller": "",
+        "relayReceiver": "",
+        "erc20Router": "",
+        "approvalProxy": ""
+      },
+      "vmType": "svm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 888888888,
+      "name": "ancient8",
+      "displayName": "Ancient8",
+      "httpRpcUrl": "https://rpc.ancient8.gg/",
+      "wsRpcUrl": "wss://rpc.ancient8.gg/",
+      "explorerUrl": "https://scan.ancient8.gg",
+      "explorerName": "Ancient8 Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 50,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/888888888/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002bdbf1bf3279983603ec279cc6df",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 1,
+      "tags": []
+    },
+    {
+      "id": 1380012617,
+      "name": "rari",
+      "displayName": "RARI",
+      "httpRpcUrl": "https://mainnet.rpc.rarichain.org/http",
+      "wsRpcUrl": "",
+      "explorerUrl": "https://mainnet.explorer.rarichain.org",
+      "explorerName": "Rari Explorer",
+      "depositEnabled": true,
+      "tokenSupport": "Limited",
+      "disabled": false,
+      "partialDisableLimit": 0,
+      "blockProductionLagging": false,
+      "currency": {
+        "id": "eth",
+        "symbol": "ETH",
+        "name": "Ether",
+        "address": "0x0000000000000000000000000000000000000000",
+        "decimals": 18,
+        "supportsBridging": true
+      },
+      "withdrawalFee": 10,
+      "depositFee": 0,
+      "surgeEnabled": false,
+      "featuredTokens": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Ether",
+          "address": "0x0000000000000000000000000000000000000000",
+          "decimals": 18,
+          "supportsBridging": true,
+          "withdrawalFee": 0,
+          "depositFee": 0,
+          "surgeEnabled": false
+        }
+      ],
+      "erc20Currencies": [],
+      "iconUrl": "https://assets.relay.link/icons/1380012617/light.png",
+      "contracts": {
+        "multicall3": "",
+        "multicaller": "0x0000000000002Bdbf1Bf3279983603Ec279CC6dF",
+        "onlyOwnerMulticaller": "0xb90ed4c123843cbfd66b11411ee7694ef37e6e72",
+        "relayReceiver": "0x00000000aa467eba42a3d604b3d74d63b2b6c6cb",
+        "erc20Router": "0xeeeeee9ec4769a09a76a83c7bc42b185872860ee",
+        "approvalProxy": "0xaaaaaaae92cc1ceef79a038017889fdd26d23d4d"
+      },
+      "vmType": "evm",
+      "baseChainId": 42161,
+      "tags": []
+    }
+  ]
+}

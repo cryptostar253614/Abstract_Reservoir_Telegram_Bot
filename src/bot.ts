@@ -213,6 +213,7 @@ const bot = new TelegramBot(config.TELEGRAM_BOT_TOKEN, {
 const userStates = new Map<number, string>();
 const selectedWallets = new Map();
 const pendingOrders = new Map();
+const marketOrders = new Map();
 
 // Start command
 bot.onText(/\/start/, async (msg) => {
@@ -234,6 +235,10 @@ bot.onText(/\/start/, async (msg) => {
         [
           { text: "🟢 Buy Limit Order", callback_data: "buylimitorder" },
           { text: "🔴 Sell Limit Order", callback_data: "selllimitorder" },
+        ],
+        [
+          { text: "🟩 Buy Market Order", callback_data: "buymarketorder" },
+          { text: "🟥 Sell Market Order", callback_data: "sellmarketorder" },
         ],
       ],
     },
@@ -358,6 +363,126 @@ bot.on("callback_query", async (query) => {
             },
           ],
           [{ text: "🟣 Create Order", callback_data: "create_order_sell" }],
+        ],
+      },
+    });
+  }
+
+  if (data.startsWith("buy_market_wallet_")) {
+    const walletAddress = data.replace("buy_market_wallet_", "");
+    const user = await User.findOne({ telegramId: userId });
+    if (!user) return;
+
+    const selectedWallet = user.wallets.find(
+      (w) => w.address === walletAddress
+    );
+
+    if (!selectedWallet) {
+      await bot.sendMessage(chatId, "⚠️ Wallet not found.");
+      return;
+    }
+
+    marketOrders.set(userId, {
+      wallet: selectedWallet,
+      type: "BUY",
+      tokenIn: "0x3439153EB7AF838Ad19d56E1571FBD09333C2809",
+      tokenOut: null,
+      amount: null,
+      slippage: 1,
+    });
+
+    await bot.sendMessage(chatId, `🟢 *Buy Market Order*`, {
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: "🔘 Token To Buy",
+              callback_data: "edit_token_buy_market", // this lets user change token if needed
+            },
+          ],
+          [
+            {
+              text: "✅ Slippage: Auto",
+              callback_data: "slippage_auto_buy_market",
+            },
+            {
+              text: "Slippage: Custom %",
+              callback_data: "slippage_custom_buy_market",
+            },
+          ],
+          [
+            {
+              text: "Amount: WETH",
+              callback_data: "edit_amount_buy_market",
+            },
+          ],
+          [
+            {
+              text: "🟣 Create Order",
+              callback_data: "create_order_market",
+            },
+          ],
+        ],
+      },
+    });
+  }
+
+  if (data.startsWith("sell_market_wallet_")) {
+    const walletAddress = data.replace("sell_market_wallet_", "");
+    const user = await User.findOne({ telegramId: userId });
+    if (!user) return;
+
+    const selectedWallet = user.wallets.find(
+      (w) => w.address === walletAddress
+    );
+
+    if (!selectedWallet) {
+      await bot.sendMessage(chatId, "⚠️ Wallet not found.");
+      return;
+    }
+
+    marketOrders.set(userId, {
+      wallet: selectedWallet,
+      type: "SELL",
+      tokenIn: null,
+      tokenOut: "0x3439153EB7AF838Ad19d56E1571FBD09333C2809",
+      amount: null,
+      slippage: 1,
+    });
+
+    await bot.sendMessage(chatId, `🟢 *Sell Market Order*`, {
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: "🔘 Token To SELL",
+              callback_data: "edit_token_sell_market", // this lets user change token if needed
+            },
+          ],
+          [
+            {
+              text: "✅ Slippage: Auto",
+              callback_data: "slippage_auto_sell_market",
+            },
+            {
+              text: "Slippage: Custom %",
+              callback_data: "slippage_custom_sell_market",
+            },
+          ],
+          [
+            {
+              text: "Amount: TOKEN",
+              callback_data: "edit_amount_sell_market",
+            },
+          ],
+          [
+            {
+              text: "🟣 Create Order",
+              callback_data: "create_order_market",
+            },
+          ],
         ],
       },
     });
@@ -611,6 +736,52 @@ bot.on("callback_query", async (query) => {
     );
   }
 
+  if (data === "buymarketorder") {
+    const user = await User.findOne({ telegramId: userId });
+    if (!user || user.wallets.length === 0) {
+      await bot.sendMessage(chatId, "❌ You have no wallets set up.");
+      return;
+    }
+
+    const walletButtons = user.wallets.map((w) => [
+      {
+        text: `${w.address.slice(0, 6)}...${w.address.slice(-4)}`,
+        callback_data: `buy_market_wallet_${w.address}`,
+      },
+    ]);
+
+    await bot.sendMessage(
+      chatId,
+      "💼 Choose a wallet for your Buy Limit Order:",
+      {
+        reply_markup: { inline_keyboard: walletButtons },
+      }
+    );
+  }
+
+  if (data === "sellmarketorder") {
+    const user = await User.findOne({ telegramId: userId });
+    if (!user || user.wallets.length === 0) {
+      await bot.sendMessage(chatId, "❌ You have no wallets set up.");
+      return;
+    }
+
+    const walletButtons = user.wallets.map((w) => [
+      {
+        text: `${w.address.slice(0, 6)}...${w.address.slice(-4)}`,
+        callback_data: `sell_market_wallet_${w.address}`,
+      },
+    ]);
+
+    await bot.sendMessage(
+      chatId,
+      "💼 Choose a wallet for your Buy Limit Order:",
+      {
+        reply_markup: { inline_keyboard: walletButtons },
+      }
+    );
+  }
+
   if (data === "create_order_sell") {
     // Retrieve the pending order for this user
     const order = pendingOrders.get(userId);
@@ -658,25 +829,117 @@ bot.on("callback_query", async (query) => {
             inline_keyboard: [
               [
                 { text: "🧾 Setup Wallet", callback_data: "setupwallet" },
+                { text: "📋 View All Orders", callback_data: "viewallorders" },
+              ],
+              [
+                { text: "🟢 Buy Limit Order", callback_data: "buylimitorder" },
                 {
-                  text: "📋 View All Orders",
-                  callback_data: "viewallorders",
+                  text: "🔴 Sell Limit Order",
+                  callback_data: "selllimitorder",
                 },
               ],
               [
                 {
-                  text: "🟢 Buy Limit Order",
-                  callback_data: "buylimitorder",
+                  text: "🟩 Buy Market Order",
+                  callback_data: "buymarketorder",
                 },
                 {
-                  text: "🔴 Sell Limit Order",
-                  callback_data: "selllimitorder",
+                  text: "🟥 Sell Market Order",
+                  callback_data: "sellmarketorder",
                 },
               ],
             ],
           },
         }
       );
+    } catch (error) {
+      console.error("Error saving the order:", error);
+      await bot.sendMessage(
+        chatId,
+        "❌ There was an error creating the order. Please try again later."
+      );
+    }
+  }
+
+  if (data === "create_order_market") {
+    // Retrieve the pending order for this user
+    const order = marketOrders.get(userId);
+
+    if (!order) {
+      await bot.sendMessage(chatId, "⚠️ No pending buy order found.");
+      return;
+    }
+
+    try {
+      // Clear the pending order for the user
+      marketOrders.delete(userId);
+
+      const tokenToWatch =
+        order.type === "BUY" ? order.tokenOut : order.tokenIn;
+      const price = await getLivePrice(tokenToWatch);
+
+      const user = order.wallet.address;
+      const originCurrency = order.tokenIn;
+      const destinationCurrency = order.tokenOut;
+      const amount = order.amount;
+
+      const quote = await getQuoteForSwap({
+        user,
+        originCurrency,
+        destinationCurrency,
+        amount,
+      });
+
+      const steps = quote.steps;
+      const signer = await abstractChainService.getWallet(order.wallet);
+      const signature = await abstractChainService.executeReservoirSwap(
+        steps,
+        signer
+      );
+
+      await bot.sendMessage(
+        order.userId,
+        `🚀 *Order Executed Successfully!*\n\n` +
+          `📄 *Order Details:*\n` +
+          `• *Type:* \`${order.type}\`\n` +
+          `• *Amount:* \`${order.amount}\`\n` +
+          `• *Token:* \`${tokenToWatch}\`\n` +
+          `• *Executed Price:* \`${price}\`\n` +
+          `• *Allowed Slippage:* \`${order.slippage}%\`\n\n` +
+          `🔗 *Transaction:* [View on AbScan](https://abscan.org/tx/${signature})\n\n` +
+          `✅ _Your order has been filled successfully!_`,
+        { parse_mode: "Markdown" }
+      );
+
+      // Notify the user that the order was created successfully
+      await bot.sendMessage(chatId, messages.welcome, {
+        parse_mode: "Markdown",
+        reply_markup: {
+          inline_keyboard: [
+            [
+              { text: "🧾 Setup Wallet", callback_data: "setupwallet" },
+              { text: "📋 View All Orders", callback_data: "viewallorders" },
+            ],
+            [
+              { text: "🟢 Buy Limit Order", callback_data: "buylimitorder" },
+              {
+                text: "🔴 Sell Limit Order",
+                callback_data: "selllimitorder",
+              },
+            ],
+            [
+              {
+                text: "🟩 Buy Market Order",
+                callback_data: "buymarketorder",
+              },
+              {
+                text: "🟥 Sell Market Order",
+                callback_data: "sellmarketorder",
+              },
+            ],
+          ],
+        },
+      });
     } catch (error) {
       console.error("Error saving the order:", error);
       await bot.sendMessage(
@@ -733,19 +996,23 @@ bot.on("callback_query", async (query) => {
             inline_keyboard: [
               [
                 { text: "🧾 Setup Wallet", callback_data: "setupwallet" },
+                { text: "📋 View All Orders", callback_data: "viewallorders" },
+              ],
+              [
+                { text: "🟢 Buy Limit Order", callback_data: "buylimitorder" },
                 {
-                  text: "📋 View All Orders",
-                  callback_data: "viewallorders",
+                  text: "🔴 Sell Limit Order",
+                  callback_data: "selllimitorder",
                 },
               ],
               [
                 {
-                  text: "🟢 Buy Limit Order",
-                  callback_data: "buylimitorder",
+                  text: "🟩 Buy Market Order",
+                  callback_data: "buymarketorder",
                 },
                 {
-                  text: "🔴 Sell Limit Order",
-                  callback_data: "selllimitorder",
+                  text: "🟥 Sell Market Order",
+                  callback_data: "sellmarketorder",
                 },
               ],
             ],
@@ -851,6 +1118,62 @@ bot.on("callback_query", async (query) => {
     });
   }
 
+  if (data === "slippage_auto_sell_market") {
+    const marketOrder = marketOrders.get(userId);
+    if (!marketOrder) {
+      await bot.sendMessage(chatId, "⚠️ No pending sell order found.");
+      return;
+    }
+
+    // Set default auto slippage (e.g., 1%)
+    const autoSlippage = 1;
+    marketOrder.slippage = autoSlippage;
+    pendingOrders.set(userId, marketOrder);
+    // Optionally resend updated UI
+    const tokenLabel = marketOrder.tokenIn
+      ? `🔘 Token: ${marketOrder.tokenIn.slice(
+          0,
+          6
+        )}...${marketOrder.tokenIn.slice(-4)}`
+      : "Token To Sell";
+
+    await bot.sendMessage(chatId, `✅ Auto slippage set to ${autoSlippage}%`, {
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: tokenLabel,
+              callback_data: "edit_token_sell_market", // this lets user change token if needed
+            },
+          ],
+          [
+            {
+              text: "✅ Slippage: Auto",
+              callback_data: "slippage_auto_sell_market",
+            },
+            {
+              text: "Slippage: Custom %",
+              callback_data: "slippage_custom_sell_market",
+            },
+          ],
+          [
+            {
+              text: "Amount: TOKEN",
+              callback_data: "edit_amount_sell_market",
+            },
+          ],
+          [
+            {
+              text: "🟣 Create Order",
+              callback_data: "create_order_market",
+            },
+          ],
+        ],
+      },
+    });
+  }
+
   if (data === "slippage_auto_buy") {
     const pendingOrder = pendingOrders.get(userId);
     if (!pendingOrder) {
@@ -903,10 +1226,179 @@ bot.on("callback_query", async (query) => {
     });
   }
 
+  if (data === "slippage_auto_buy_market") {
+    const marketOrder = marketOrders.get(userId);
+    if (!marketOrder) {
+      await bot.sendMessage(chatId, "⚠️ No pending sell order found.");
+      return;
+    }
+
+    // Set default auto slippage (e.g., 1%)
+    const autoSlippage = 1;
+    marketOrder.slippage = autoSlippage;
+    marketOrders.set(userId, marketOrder);
+    // Optionally resend updated UI
+    const tokenLabel = marketOrder.tokenIn
+      ? `🔘 Token: ${marketOrder.tokenIn.slice(
+          0,
+          6
+        )}...${marketOrder.tokenIn.slice(-4)}`
+      : "Token To Buy";
+
+    await bot.sendMessage(chatId, `✅ Auto slippage set to ${autoSlippage}%`, {
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: tokenLabel,
+              callback_data: "edit_token_buy_market", // this lets user change token if needed
+            },
+          ],
+          [
+            {
+              text: "✅ Slippage: Auto",
+              callback_data: "slippage_auto_buy_market",
+            },
+            {
+              text: "Slippage: Custom %",
+              callback_data: "slippage_custom_buy_market",
+            },
+          ],
+          [
+            {
+              text: "Amount: WETH",
+              callback_data: "edit_amount_buy_market",
+            },
+          ],
+          [
+            {
+              text: "🟣 Create Order",
+              callback_data: "create_order_market",
+            },
+          ],
+        ],
+      },
+    });
+  }
+
+  if (data === "edit_amount_sell") {
+    const selectedWallet = selectedWallets.get(userId);
+    const pendingOrder = pendingOrders.get(userId);
+
+    if (!selectedWallet || !pendingOrder?.tokenIn) {
+      await bot.sendMessage(
+        chatId,
+        "⚠️ Please select a wallet and token first."
+      );
+      return;
+    }
+
+    try {
+      const balance = await abstractChainService.getBalance(
+        pendingOrder.tokenIn,
+        selectedWallet
+      );
+
+      if (Number(balance) === 0) {
+        await bot.sendMessage(chatId, `😕 Your wallet has 0 token.`);
+        return;
+      }
+
+      // Generate percentages
+      const makeButton = (percent: number) => {
+        const amount = Math.floor(Number(balance) * percent);
+        return {
+          text: `${percent * 100}% (${amount} token)`,
+          callback_data: `amount_sell_percent_${percent}`,
+        };
+      };
+
+      await bot.sendMessage(
+        chatId,
+        `💰 Enter the amount you want to sell or choose a percentage:\n*Available: ${balance} token*`,
+        {
+          parse_mode: "Markdown",
+          reply_markup: {
+            inline_keyboard: [
+              [makeButton(0.2), makeButton(0.5)],
+              [makeButton(0.7), makeButton(1.0)],
+            ],
+          },
+        }
+      );
+    } catch (err) {
+      console.error("Error getting token balance:", err);
+      await bot.sendMessage(chatId, "❌ Failed to retrieve token balance.");
+    }
+  }
+
+  if (data === "edit_amount_sell_market") {
+    const selectedWallet = selectedWallets.get(userId);
+    const marketOrder = marketOrders.get(userId);
+
+    if (!selectedWallet || !marketOrder?.tokenIn) {
+      await bot.sendMessage(
+        chatId,
+        "⚠️ Please select a wallet and token first."
+      );
+      return;
+    }
+
+    try {
+      const balance = await abstractChainService.getBalance(
+        marketOrder.tokenIn,
+        selectedWallet
+      );
+
+      if (Number(balance) === 0) {
+        await bot.sendMessage(chatId, `😕 Your wallet has 0 token.`);
+        return;
+      }
+
+      // Generate percentages
+      const makeButton = (percent: number) => {
+        const amount = Math.floor(Number(balance) * percent);
+        return {
+          text: `${percent * 100}% (${amount} token)`,
+          callback_data: `amount_sell_percent_${percent}`,
+        };
+      };
+
+      await bot.sendMessage(
+        chatId,
+        `💰 Enter the amount you want to sell or choose a percentage:\n*Available: ${balance} token*`,
+        {
+          parse_mode: "Markdown",
+          reply_markup: {
+            inline_keyboard: [
+              [makeButton(0.2), makeButton(0.5)],
+              [makeButton(0.7), makeButton(1.0)],
+            ],
+          },
+        }
+      );
+    } catch (err) {
+      console.error("Error getting token balance:", err);
+      await bot.sendMessage(chatId, "❌ Failed to retrieve token balance.");
+    }
+  }
+
   switch (data) {
     case "edit_token_buy":
       // Mark user as awaiting tokenOut input
       userStates.set(userId, "AWAITING_TOKEN_INPUT_BUY");
+      await bot.sendMessage(
+        chatId,
+        "💠 Please enter the *token address* you want to BUY:",
+        {
+          parse_mode: "Markdown",
+        }
+      );
+      break;
+    case "edit_token_buy_market":
+      // Mark user as awaiting tokenOut input
+      userStates.set(userId, "AWAITING_TOKEN_INPUT_BUY_MARKET");
       await bot.sendMessage(
         chatId,
         "💠 Please enter the *token address* you want to BUY:",
@@ -925,6 +1417,16 @@ bot.on("callback_query", async (query) => {
         }
       );
       break;
+    case "edit_token_sell_market":
+      userStates.set(userId, "AWAITING_TOKEN_INPUT_SELL_MARKET");
+      await bot.sendMessage(
+        chatId,
+        "💠 Please enter the *token address* you want to SELL:",
+        {
+          parse_mode: "Markdown",
+        }
+      );
+      break;
 
     case "edit_amount_buy":
       userStates.set(userId, "AWAITING_AMOUNT_INPUT_BUY");
@@ -933,56 +1435,13 @@ bot.on("callback_query", async (query) => {
         "💰 Enter the amount you want to buy: (e.g., 0.5 ETH)"
       );
       break;
-    case "edit_amount_sell":
-      const selectedWallet = selectedWallets.get(userId);
-      const pendingOrder = pendingOrders.get(userId);
 
-      if (!selectedWallet || !pendingOrder?.tokenIn) {
-        await bot.sendMessage(
-          chatId,
-          "⚠️ Please select a wallet and token first."
-        );
-        return;
-      }
-
-      try {
-        const balance = await abstractChainService.getBalance(
-          pendingOrder.tokenIn,
-          selectedWallet
-        );
-
-        if (Number(balance) === 0) {
-          await bot.sendMessage(chatId, `😕 Your wallet has 0 token.`);
-          return;
-        }
-
-        // Generate percentages
-        const makeButton = (percent: number) => {
-          const amount = Math.floor(Number(balance) * percent);
-          return {
-            text: `${percent * 100}% (${amount} token)`,
-            callback_data: `amount_sell_percent_${percent}`,
-          };
-        };
-
-        await bot.sendMessage(
-          chatId,
-          `💰 Enter the amount you want to sell or choose a percentage:\n*Available: ${balance} token*`,
-          {
-            parse_mode: "Markdown",
-            reply_markup: {
-              inline_keyboard: [
-                [makeButton(0.2), makeButton(0.5)],
-                [makeButton(0.7), makeButton(1.0)],
-              ],
-            },
-          }
-        );
-      } catch (err) {
-        console.error("Error getting token balance:", err);
-        await bot.sendMessage(chatId, "❌ Failed to retrieve token balance.");
-      }
-
+    case "edit_amount_buy_market":
+      userStates.set(userId, "AWAITING_AMOUNT_INPUT_BUY_MARKET");
+      await bot.sendMessage(
+        chatId,
+        "💰 Enter the amount you want to buy: (e.g., 0.5 ETH)"
+      );
       break;
 
     case "slippage_custom_buy":
@@ -990,8 +1449,18 @@ bot.on("callback_query", async (query) => {
       await bot.sendMessage(chatId, "🧮 Enter slippage % (e.g., 0.5):");
       break;
 
+    case "slippage_custom_buy_market":
+      userStates.set(userId, "AWAITING_SLIPPAGE_INPUT_BUY_MARKET");
+      await bot.sendMessage(chatId, "🧮 Enter slippage % (e.g., 0.5):");
+      break;
+
     case "slippage_custom_sell":
       userStates.set(userId, "AWAITING_SLIPPAGE_INPUT_SELL");
+      await bot.sendMessage(chatId, "🧮 Enter slippage % (e.g., 0.5):");
+      break;
+
+    case "slippage_custom_sell_market":
+      userStates.set(userId, "AWAITING_SLIPPAGE_INPUT_SELL_MARKET");
       await bot.sendMessage(chatId, "🧮 Enter slippage % (e.g., 0.5):");
       break;
 
@@ -1176,6 +1645,67 @@ bot.on("message", async (msg) => {
     });
   }
 
+  if (state === "AWAITING_TOKEN_INPUT_BUY_MARKET") {
+    // Optionally validate address
+    if (!/^0x[a-fA-F0-9]{40}$/.test(text)) {
+      await bot.sendMessage(
+        chatId,
+        "❌ Invalid address. Please send a valid Ethereum token address."
+      );
+      return;
+    }
+
+    const order = marketOrders.get(userId);
+    if (!order) {
+      await bot.sendMessage(chatId, "⚠️ No order in progress.");
+      return;
+    }
+
+    order.tokenOut = text;
+    marketOrders.set(userId, order);
+
+    // Clear the state
+    userStates.delete(userId);
+
+    // Optionally resend the Buy Limit Order UI
+    const shortToken = `${text.slice(0, 6)}...${text.slice(-4)}`;
+    await bot.sendMessage(chatId, `✅ *Token to Buy* set:\n\`${shortToken}\``, {
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: `🔘 Token: ${shortToken}`,
+              callback_data: "edit_token_buy_market",
+            },
+          ],
+          [
+            {
+              text: "✅ Slippage: Auto",
+              callback_data: "slippage_auto_buy_market",
+            },
+            {
+              text: "Slippage: Custom %",
+              callback_data: "slippage_custom_buy_market",
+            },
+          ],
+          [
+            {
+              text: "Amount: WETH",
+              callback_data: "edit_amount_buy_market",
+            },
+          ],
+          [
+            {
+              text: "🟣 Create Order",
+              callback_data: "create_order_market",
+            },
+          ],
+        ],
+      },
+    });
+  }
+
   if (state === "AWAITING_TOKEN_INPUT_SELL") {
     // Optionally validate address
     if (!/^0x[a-fA-F0-9]{40}$/.test(text)) {
@@ -1243,6 +1773,71 @@ bot.on("message", async (msg) => {
     );
   }
 
+  if (state === "AWAITING_TOKEN_INPUT_SELL_MARKET") {
+    // Optionally validate address
+    if (!/^0x[a-fA-F0-9]{40}$/.test(text)) {
+      await bot.sendMessage(
+        chatId,
+        "❌ Invalid address. Please send a valid Ethereum token address."
+      );
+      return;
+    }
+
+    const order = marketOrders.get(userId);
+    if (!order) {
+      await bot.sendMessage(chatId, "⚠️ No order in progress.");
+      return;
+    }
+
+    order.tokenIn = text;
+    marketOrders.set(userId, order);
+
+    // Clear the state
+    userStates.delete(userId);
+
+    // Optionally resend the Buy Limit Order UI
+    const shortToken = `${text.slice(0, 6)}...${text.slice(-4)}`;
+    await bot.sendMessage(
+      chatId,
+      `✅ *Token to Sell* set:\n\`${shortToken}\``,
+      {
+        parse_mode: "Markdown",
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text: `🔘 Token: ${shortToken}`,
+                callback_data: "edit_token_sell_market",
+              },
+            ],
+            [
+              {
+                text: "✅ Slippage: Auto",
+                callback_data: "slippage_auto_sell_market",
+              },
+              {
+                text: "Slippage: Custom %",
+                callback_data: "slippage_custom_sell_market",
+              },
+            ],
+            [
+              {
+                text: "Amount: TOKEN",
+                callback_data: "edit_amount_sell_market",
+              },
+            ],
+            [
+              {
+                text: "🟣 Create Order",
+                callback_data: "create_order_market",
+              },
+            ],
+          ],
+        },
+      }
+    );
+  }
+
   if (state === "AWAITING_PRIVATE_KEY") {
     try {
       if (!text.match(/^[a-fA-F0-9]{64}$/)) {
@@ -1285,6 +1880,16 @@ bot.on("message", async (msg) => {
                 {
                   text: "🔴 Sell Limit Order",
                   callback_data: "selllimitorder",
+                },
+              ],
+              [
+                {
+                  text: "🟩 Buy Market Order",
+                  callback_data: "buymarketorder",
+                },
+                {
+                  text: "🟥 Sell Market Order",
+                  callback_data: "sellmarketorder",
                 },
               ],
             ],
@@ -1360,6 +1965,68 @@ bot.on("message", async (msg) => {
     return;
   }
 
+  if (state === "AWAITING_AMOUNT_INPUT_BUY_MARKET") {
+    const amount = parseFloat(text);
+
+    if (isNaN(amount) || amount <= 0) {
+      await bot.sendMessage(
+        chatId,
+        "❌ Invalid amount. Please enter a number."
+      );
+      return;
+    }
+
+    const order = marketOrders.get(userId);
+    if (!order) {
+      await bot.sendMessage(chatId, "⚠️ No order in progress.");
+      return;
+    }
+
+    order.amount = amount * 1e18;
+    marketOrders.set(userId, order);
+    userStates.delete(userId);
+    const tokenLabel = order.tokenOut
+      ? `🔘 Token: ${order.tokenOut.slice(0, 6)}...${order.tokenOut.slice(-4)}`
+      : "🔘 Token To Buy";
+    await bot.sendMessage(chatId, `✅ Amount set to ${amount} ETH!`, {
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: tokenLabel,
+              callback_data: "edit_token_buy_market",
+            },
+          ],
+          [
+            {
+              text: "✅ Slippage: Auto",
+              callback_data: "slippage_auto_buy_market",
+            },
+            {
+              text: "Slippage: Custom %",
+              callback_data: "slippage_custom_buy_market",
+            },
+          ],
+          [
+            {
+              text: "Amount: WETH",
+              callback_data: "edit_amount_buy_market",
+            },
+          ],
+          [
+            {
+              text: "🟣 Create Order",
+              callback_data: "create_order_market",
+            },
+          ],
+        ],
+      },
+    });
+
+    return;
+  }
+
   if (state === "AWAITING_SLIPPAGE_INPUT_BUY") {
     const slippage = parseFloat(text);
     if (isNaN(slippage) || slippage <= 0 || slippage > 100) {
@@ -1410,6 +2077,65 @@ bot.on("message", async (msg) => {
             },
           ],
           [{ text: "🟣 Create Order", callback_data: "create_order_buy" }],
+        ],
+      },
+    });
+  }
+
+  if (state === "AWAITING_SLIPPAGE_INPUT_BUY_MARKET") {
+    const slippage = parseFloat(text);
+    if (isNaN(slippage) || slippage <= 0 || slippage > 100) {
+      await bot.sendMessage(
+        chatId,
+        "❌ Invalid slippage. Please enter a % like 0.5"
+      );
+      return;
+    }
+
+    const order = marketOrders.get(userId);
+    if (!order) {
+      await bot.sendMessage(chatId, "⚠️ No order in progress.");
+      return;
+    }
+
+    order.slippage = slippage;
+    marketOrders.set(userId, order);
+    userStates.delete(userId);
+    const tokenLabel = order.tokenOut
+      ? `🔘 Token: ${order.tokenOut.slice(0, 6)}...${order.tokenOut.slice(-4)}`
+      : "🔘 Token To Buy";
+    await bot.sendMessage(chatId, `✅ Slippage set to ${slippage}%`, {
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: tokenLabel,
+              callback_data: "edit_token_buy_market",
+            },
+          ],
+          [
+            {
+              text: "✅ Slippage: Auto",
+              callback_data: "slippage_auto_buy_market",
+            },
+            {
+              text: "Slippage: Custom %",
+              callback_data: "slippage_custom_buy_market",
+            },
+          ],
+          [
+            {
+              text: "Amount: WETH",
+              callback_data: "edit_amount_buy_market",
+            },
+          ],
+          [
+            {
+              text: "🟣 Create Order",
+              callback_data: "create_order_market",
+            },
+          ],
         ],
       },
     });
@@ -1471,6 +2197,65 @@ bot.on("message", async (msg) => {
             },
           ],
           [{ text: "🟣 Create Order", callback_data: "create_order_sell" }],
+        ],
+      },
+    });
+  }
+
+  if (state === "AWAITING_SLIPPAGE_INPUT_SELL_MARKET") {
+    const slippage = parseFloat(text);
+    if (isNaN(slippage) || slippage <= 0 || slippage > 100) {
+      await bot.sendMessage(
+        chatId,
+        "❌ Invalid slippage. Please enter a % like 0.5"
+      );
+      return;
+    }
+
+    const order = marketOrders.get(userId);
+    if (!order) {
+      await bot.sendMessage(chatId, "⚠️ No order in progress.");
+      return;
+    }
+
+    order.slippage = slippage;
+    marketOrders.set(userId, order);
+    userStates.delete(userId);
+    const tokenLabel = order.tokenIn
+      ? `🔘 Token: ${order.tokenIn.slice(0, 6)}...${order.tokenIn.slice(-4)}`
+      : "🔘 Token To Sell";
+    await bot.sendMessage(chatId, `✅ Slippage set to ${slippage}%`, {
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: tokenLabel,
+              callback_data: "edit_token_sell_market",
+            },
+          ],
+          [
+            {
+              text: "✅ Slippage: Auto",
+              callback_data: "slippage_auto_sell_market",
+            },
+            {
+              text: "Slippage: Custom %",
+              callback_data: "slippage_custom_sell_market",
+            },
+          ],
+          [
+            {
+              text: "Amount: TOKEN",
+              callback_data: "edit_amount_sell_market",
+            },
+          ],
+          [
+            {
+              text: "🟣 Create Order",
+              callback_data: "create_order_market",
+            },
+          ],
         ],
       },
     });

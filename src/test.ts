@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import crypto from "crypto";
 import { resolve } from "path";
+import { getClient } from "@reservoir0x/relay-sdk";
 
 const provider = new ethers.JsonRpcProvider("https://api.mainnet.abs.xyz");
 const signer = new ethers.Wallet("", provider);
@@ -46,7 +47,7 @@ async function executeReservoirSwap(
         const receipt = await txResponse.wait();
         console.log(`✅ ${step.id} confirmed: ${receipt!.hash}`);
       } catch (err) {
-        console.error(`❌ Failed on step ${step.id}:`, err);
+        // console.error(`❌ Failed on step ${step.id}:`, err);
         throw err; // You may want to handle or log it better
       }
     }
@@ -83,9 +84,9 @@ async function getQuoteForSwap({
 
 async function run() {
   const user = "0x9c0dC0a5C160cbb0F81243842fEC5c6b362Fbe70";
-  const originCurrency = "0x4db861A72adca3Ca978B93E2a9E797db4836A08F";
+  const originCurrency = "0x85Ca16Fd0e81659e0b8Be337294149E722528731";
   const destinationCurrency = "0x3439153EB7AF838Ad19d56E1571FBD09333C2809";
-  const amount = BigInt(47896431999383092628693).toString();
+  const amount = BigInt(28117131701709177823).toString();
 
   const quote = await getQuoteForSwap({
     user,

@@ -1616,89 +1616,103 @@ const parseExpiry = (expiry: string): number => {
   throw new Error("Unsupported time unit");
 };
 
-setInterval(async () => {
-  const activeOrders = await Order.find({ status: "ACTIVE" });
+async function processOrdersLoop() {
+  try {
+    const activeOrders = await Order.find({ status: "ACTIVE" });
 
-  for (const order of activeOrders) {
-    try {
-      const tokenToWatch =
-        order.type === "BUY" ? order.tokenOut : order.tokenIn;
-      const price = await getLivePrice(tokenToWatch);
+    for (const order of activeOrders) {
+      try {
+        const tokenToWatch =
+          order.type === "BUY" ? order.tokenOut : order.tokenIn;
+        const price = await getLivePrice(tokenToWatch);
 
-      // Calculate slippage thresholds
-      const slippageFactor = order.slippage / 100;
-      let lowerLimit, upperLimit;
+        // Calculate slippage thresholds
+        const slippageFactor = order.slippage / 100;
+        let lowerLimit, upperLimit;
 
-      if (order.type === "BUY") {
-        // For BUY orders, slippage means the price could be a little higher than the trigger
-        upperLimit = order.triggerPrice! * (1 + slippageFactor);
-        lowerLimit = order.triggerPrice; // The price can't go lower than the trigger for a buy
-      } else if (order.type === "SELL") {
-        // For SELL orders, slippage means the price could be a little lower than the trigger
-        lowerLimit = order.triggerPrice! * (1 - slippageFactor);
-        upperLimit = order.triggerPrice; // The price can't go higher than the trigger for a sell
+        if (order.type === "BUY") {
+          upperLimit = order.triggerPrice! * (1 + slippageFactor);
+          lowerLimit = order.triggerPrice!;
+        } else if (order.type === "SELL") {
+          lowerLimit = order.triggerPrice! * (1 - slippageFactor);
+          upperLimit = order.triggerPrice!;
+        }
+
+        // Price check with slippage filter
+        if (
+          (order.type === "BUY" && price <= upperLimit!) ||
+          (order.type === "SELL" && price >= lowerLimit!)
+        ) {
+          const user = order.wallet.address;
+          const originCurrency = order.tokenIn;
+          const destinationCurrency = order.tokenOut;
+          const amount = order.amount;
+
+          const quote = await getQuoteForSwap({
+            user,
+            originCurrency,
+            destinationCurrency,
+            amount,
+          });
+
+          const steps = quote.steps;
+          const signer = await abstractChainService.getWallet(order.wallet);
+          const signature = await abstractChainService.executeReservoirSwap(
+            steps,
+            signer
+          );
+
+          // Update order status to "FILLED"
+          order.status = "FILLED";
+          await order.save();
+
+          await bot.sendMessage(
+            order.userId,
+            `🚀 *Order Executed Successfully!*\n\n` +
+              `📄 *Order Details:*\n` +
+              `• *Type:* \`${order.type}\`\n` +
+              `• *Amount:* \`${order.amount}\`\n` +
+              `• *Token:* \`${tokenToWatch}\`\n` +
+              `• *Executed Price:* \`${price}\`\n` +
+              `• *Allowed Slippage:* \`${order.slippage}%\`\n\n` +
+              `🔗 *Transaction:* [View on AbScan](https://abscan.org/tx/${signature})\n\n` +
+              `✅ _Your order has been filled successfully!_`,
+            { parse_mode: "Markdown" }
+          );
+        }
+
+        // Check expiry
+        if (order.expiry !== null && Date.now() > order.expiry) {
+          order.status = "CANCELLED";
+          await order.save();
+
+          await bot.sendMessage(
+            order.userId,
+            `⌛ Order expired and was cancelled.`
+          );
+        }
+      } catch (err) {
+        console.error("Error processing individual order:", err);
       }
-
-      // Price check with slippage filter
-      if (
-        (order.type === "BUY" && price <= upperLimit!) ||
-        (order.type === "SELL" && price >= lowerLimit!)
-      ) {
-        const user = order.wallet.address;
-        const originCurrency = order.tokenIn;
-        const destinationCurrency = order.tokenOut;
-        const amount = order.amount;
-
-        const quote = await getQuoteForSwap({
-          user,
-          originCurrency,
-          destinationCurrency,
-          amount,
-        });
-
-        const steps = quote.steps;
-        const signer = await abstractChainService.getWallet(order.wallet);
-        const signature = await abstractChainService.executeReservoirSwap(
-          steps,
-          signer
-        );
-        // Update order status to "FILLED"
-        order.status = "FILLED";
-        await order.save();
-        // Notify user (you can send a transaction hash here when it's available)
-        await bot.sendMessage(
-          order.userId,
-          `✅ *Order executed!*\n\n` +
-            `*Type:* ${order.type}\n` +
-            `*Amount:* ${order.amount}\n` +
-            `*Token:* ${tokenToWatch}\n` +
-            `*Price:* ${price}\n` +
-            `*Slippage:* ${order.slippage}%\n` +
-            `*Tx Signature:* [${signature}](https://abscan.org/tx/${signature})`,
-          { parse_mode: "Markdown" }
-        );
-      }
-
-      // Check expiry
-      if (order.expiry !== null && Date.now() > order.expiry) {
-        order.status = "CANCELLED";
-        await order.save();
-
-        await bot.sendMessage(
-          order.userId,
-          `⌛ Order expired and was cancelled.`
-        );
-      }
-    } catch (err) {
-      console.error("Error processing order:", err);
     }
+  } catch (err) {
+    console.error("Error fetching active orders:", err);
   }
-}, 5000); // every 5 seconds
+
+  // Delay before the next loop iteration
+  setTimeout(processOrdersLoop, 5000); // 10 seconds
+}
+
+// Start the loop
+processOrdersLoop();
 
 async function getLivePrice(tokenAddress: string): Promise<number> {
   try {
+    const options = { method: "GET" };
+
     const response = await fetch(
-      `https://api.relay.link/currencies/token/price?address=${tokenAddress}&chainId=2741`
+      `https://api.relay.link/currencies/token/price?address=${tokenAddress}&chainId=2741`,
+      options
     );
 
     if (!response.ok) {

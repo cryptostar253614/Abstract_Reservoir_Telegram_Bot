@@ -178,10 +178,9 @@ class AbstractChainService {
 
         try {
           const txResponse = await signer.sendTransaction(tx);
-          const receipt = await txResponse.wait();
           if (step.id.toLowerCase() === "swap") {
-            console.log(`✅ ${step.id} confirmed: ${receipt!.hash}`);
-            tx_hash = receipt!.hash;
+            console.log(`✅ ${step.id} confirmed: ${txResponse!.hash}`);
+            tx_hash = txResponse!.hash;
           }
         } catch (err) {
           throw err; // You may want to handle or log it better

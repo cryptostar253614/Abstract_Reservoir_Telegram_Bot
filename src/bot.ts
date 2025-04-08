@@ -265,6 +265,8 @@ bot.on("callback_query", async (query) => {
       return;
     }
 
+    selectedWallets.set(userId, selectedWallet);
+
     pendingOrders.set(userId, {
       wallet: selectedWallet,
       type: "BUY",
@@ -381,6 +383,7 @@ bot.on("callback_query", async (query) => {
       await bot.sendMessage(chatId, "⚠️ Wallet not found.");
       return;
     }
+    selectedWallets.set(userId, selectedWallet);
 
     marketOrders.set(userId, {
       wallet: selectedWallet,
@@ -441,6 +444,7 @@ bot.on("callback_query", async (query) => {
       await bot.sendMessage(chatId, "⚠️ Wallet not found.");
       return;
     }
+    selectedWallets.set(userId, selectedWallet);
 
     marketOrders.set(userId, {
       wallet: selectedWallet,

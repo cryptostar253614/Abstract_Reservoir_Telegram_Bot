@@ -9,6 +9,21 @@ import path from "path";
 // Load environment variables
 dotenv.config();
 
+type ReservoirSwapStep = {
+  id: string;
+  items: {
+    status: string;
+    data: {
+      from: string;
+      to: string;
+      data: string;
+      value: string;
+      gas?: string;
+      gasPrice?: string;
+    };
+  }[];
+};
+
 // Configuration
 const config = {
   TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || "",
@@ -41,8 +56,8 @@ interface IOrder extends mongoose.Document {
   type: "BUY" | "SELL";
   tokenIn: string;
   tokenOut: string;
-  amount: number | null;
-  triggerPrice: number | null;
+  amount: number;
+  triggerPrice: number;
   slippage: number;
   status: "ACTIVE" | "FILLED" | "CANCELLED";
   expiry: number; // Expiry time as a timestamp (in seconds)
@@ -76,7 +91,7 @@ const orderSchema = new mongoose.Schema<IOrder>(
       enum: ["ACTIVE", "FILLED", "CANCELLED"],
       default: "ACTIVE",
     },
-    expiry: { type: Number, required: true }, // Store expiry as a timestamp
+    expiry: { type: Number, required: false }, // Store expiry as a timestamp
   },
   { timestamps: true }
 );
@@ -142,17 +157,39 @@ class AbstractChainService {
       return balance;
     }
   }
-  async sendTransaction(
-    transaction: ethers.TransactionRequest,
-    wallet_: IWallet
+  async executeReservoirSwap(
+    steps: ReservoirSwapStep[],
+    signer: ethers.Signer
   ) {
-    const wallet = await this.getWallet(wallet_);
-    const tx = await wallet.sendTransaction({
-      ...transaction,
-      gasLimit: config.GAS_LIMIT,
-      gasPrice: ethers.parseUnits(config.GAS_PRICE, "wei"),
-    });
-    return tx.wait();
+    let signature;
+    for (const step of steps) {
+      for (const item of step.items) {
+        const txData = item.data;
+
+        const tx = {
+          to: txData.to,
+          data: txData.data,
+          value: txData.value ? ethers.toBigInt(txData.value) : 0n,
+          gasLimit: txData.gas ? ethers.toBigInt(txData.gas) : undefined,
+          gasPrice: txData.gasPrice
+            ? ethers.toBigInt(txData.gasPrice)
+            : undefined,
+        };
+
+        try {
+          const txResponse = await signer.sendTransaction(tx);
+          const receipt = await txResponse.wait();
+          if (step.id.toLowerCase() === "swap") {
+            console.log(`✅ ${step.id} confirmed: ${receipt!.hash}`);
+            signature = receipt!.hash;
+          }
+        } catch (err) {
+          console.error(`❌ Failed on step ${step.id}:`, err);
+          throw err; // You may want to handle or log it better
+        }
+      }
+    }
+    return signature;
   }
 }
 
@@ -630,8 +667,12 @@ bot.on("callback_query", async (query) => {
       return;
     }
 
-    const expiry_time = order.expiry;
-    const expiryInSeconds = parseExpiry(expiry_time);
+    let expiryValue = null;
+
+    if (order.expiry !== "none") {
+      const expiryInSeconds = parseExpiry(order.expiry);
+      expiryValue = Date.now() + expiryInSeconds * 1000;
+    }
 
     // Create an order document to save in the database
     const newOrder = new Order({
@@ -644,7 +685,7 @@ bot.on("callback_query", async (query) => {
       triggerPrice: order.triggerPrice,
       slippage: order.slippage,
       status: "ACTIVE", // Set the initial status to ACTIVE
-      expiry: Date.now() + expiryInSeconds * 1000,
+      expiry: expiryValue,
     });
 
     try {
@@ -701,8 +742,12 @@ bot.on("callback_query", async (query) => {
       return;
     }
 
-    const expiry_time = order.expiry;
-    const expiryInSeconds = parseExpiry(expiry_time);
+    let expiryValue = null;
+
+    if (order.expiry !== "none") {
+      const expiryInSeconds = parseExpiry(order.expiry);
+      expiryValue = Date.now() + expiryInSeconds * 1000;
+    }
 
     // Create an order document to save in the database
     const newOrder = new Order({
@@ -715,7 +760,7 @@ bot.on("callback_query", async (query) => {
       triggerPrice: order.triggerPrice,
       slippage: order.slippage,
       status: "ACTIVE", // Set the initial status to ACTIVE
-      expiry: Date.now() + expiryInSeconds * 1000,
+      expiry: expiryValue,
     });
 
     try {
@@ -1011,14 +1056,17 @@ bot.on("callback_query", async (query) => {
         reply_markup: {
           inline_keyboard: [
             [
-              { text: "15m", callback_data: "expiry_buy_15m" },
               { text: "30m", callback_data: "expiry_buy_30m" },
+              { text: "1h", callback_data: "expiry_buy_1h" },
             ],
             [
-              { text: "1h", callback_data: "expiry_buy_1h" },
               { text: "4h", callback_data: "expiry_buy_4h" },
+              { text: "1d", callback_data: "expiry_buy_1d" },
             ],
-            [{ text: "1d", callback_data: "expiry_buy_1d" }],
+            [
+              { text: "4d", callback_data: "expiry_buy_4d" },
+              { text: "♾️ No Expiry", callback_data: "expiry_buy_none" },
+            ],
           ],
         },
       });
@@ -1029,14 +1077,17 @@ bot.on("callback_query", async (query) => {
         reply_markup: {
           inline_keyboard: [
             [
-              { text: "15m", callback_data: "expiry_sell_15m" },
               { text: "30m", callback_data: "expiry_sell_30m" },
+              { text: "1h", callback_data: "expiry_sell_1h" },
             ],
             [
-              { text: "1h", callback_data: "expiry_sell_1h" },
               { text: "4h", callback_data: "expiry_sell_4h" },
+              { text: "1d", callback_data: "expiry_sell_1d" },
             ],
-            [{ text: "1d", callback_data: "expiry_sell_1d" }],
+            [
+              { text: "4d", callback_data: "expiry_sell_4d" },
+              { text: "♾️ No Expiry", callback_data: "expiry_sell_none" },
+            ],
           ],
         },
       });
@@ -1071,7 +1122,9 @@ bot.on("callback_query", async (query) => {
           0,
           6
         )}...${order.wallet.address.slice(-4)}`;
-        const expiryDate = new Date(order.expiry).toLocaleString();
+        const expiryDate = order.expiry
+          ? new Date(order.expiry).toLocaleString()
+          : "No Expiry";
 
         const orderText =
           `📄 *${order.type} Limit Order*\n\n` +
@@ -1588,10 +1641,13 @@ bot.on("message", async (msg) => {
 });
 
 const parseExpiry = (expiry: string): number => {
-  const match = expiry
-    .trim()
-    .toLowerCase()
-    .match(/^(\d+)([dhm])$/); // Added 'd' support
+  const trimmed = expiry.trim().toLowerCase();
+
+  if (trimmed === "never" || trimmed === "0") {
+    return 0; // 0 means no expiry
+  }
+
+  const match = trimmed.match(/^(\d+)([dhm])$/);
   if (!match) {
     throw new Error("Invalid expiry format");
   }
@@ -1599,9 +1655,9 @@ const parseExpiry = (expiry: string): number => {
   const value = parseInt(match[1], 10);
   const unit = match[2];
 
-  if (unit === "d") return value * 24 * 60 * 60; // days to seconds
-  if (unit === "h") return value * 60 * 60; // hours to seconds
-  if (unit === "m") return value * 60; // minutes to seconds
+  if (unit === "d") return value * 24 * 60 * 60;
+  if (unit === "h") return value * 60 * 60;
+  if (unit === "m") return value * 60;
 
   throw new Error("Unsupported time unit");
 };
@@ -1634,18 +1690,42 @@ setInterval(async () => {
         (order.type === "BUY" && price <= upperLimit!) ||
         (order.type === "SELL" && price >= lowerLimit!)
       ) {
+        const user = order.wallet.address;
+        const originCurrency = order.tokenIn;
+        const destinationCurrency = order.tokenOut;
+        const amount = order.amount;
+
+        const quote = await getQuoteForSwap({
+          user,
+          originCurrency,
+          destinationCurrency,
+          amount,
+        });
+
+        const steps = quote.steps;
+        const signer = await abstractChainService.getWallet(order.wallet);
+        const signature = await abstractChainService.executeReservoirSwap(
+          steps,
+          signer
+        );
         // Update order status to "FILLED"
-        // order.status = "FILLED";
-        // await order.save();
-        // // Notify user (you can send a transaction hash here when it's available)
-        // await bot.sendMessage(
-        //   order.userId,
-        //   `✅ Order executed!\n\nType: ${order.type}\nAmount: ${order.amount}\nToken: ${tokenToWatch}\nPrice: $${price}\nSlippage: ${order.slippage}%`
-        // );
+        order.status = "FILLED";
+        await order.save();
+        // Notify user (you can send a transaction hash here when it's available)
+        await bot.sendMessage(
+          order.userId,
+          `✅ Order executed!\n\n` +
+            `*Type:* ${order.type}\n` +
+            `*Amount:* ${order.amount}\n` +
+            `*Token:* ${tokenToWatch}\n` +
+            `*Price:* ${price}\n` +
+            `*Slippage:* ${order.slippage}%\n` +
+            `*Tx Signature:* [${signature}](https://abscan.org/tx/${signature})`
+        );
       }
 
       // Check expiry
-      if (Date.now() > order.expiry) {
+      if (order.expiry !== null && Date.now() > order.expiry) {
         order.status = "CANCELLED";
         await order.save();
 
@@ -1658,8 +1738,7 @@ setInterval(async () => {
       console.error("Error processing order:", err);
     }
   }
-}, 5000);
-// every 5 seconds
+}, 5000); // every 5 seconds
 
 async function getLivePrice(tokenAddress: string): Promise<number> {
   try {
@@ -1682,4 +1761,33 @@ async function getLivePrice(tokenAddress: string): Promise<number> {
     console.error("Error fetching live price:", err);
     return 0; // or some default error value
   }
+}
+
+async function getQuoteForSwap({
+  user,
+  originCurrency,
+  destinationCurrency,
+  amount,
+}: {
+  user: string;
+  originCurrency: string;
+  destinationCurrency: string;
+  amount: number;
+}) {
+  const formattedAmount = BigInt(amount).toString();
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: `{"useReceiver":true,"user":"${user}","originChainId":2741,"destinationChainId":2741,"originCurrency":"${originCurrency}","destinationCurrency":"${destinationCurrency}","amount":"${formattedAmount}","tradeType":"EXACT_INPUT"}`,
+  };
+
+  const response = await fetch("https://api.relay.link/quote", options);
+  const json = await response.json();
+
+  if (!response.ok) {
+    console.error("Relay API error:", json);
+    throw new Error("Relay API request failed");
+  }
+
+  return json;
 }

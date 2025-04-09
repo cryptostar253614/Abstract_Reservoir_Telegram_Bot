@@ -571,7 +571,7 @@ bot.on("callback_query", async (query) => {
     }
   }
 
-  if (data.startsWith("amount_sell_percent_market_")) {
+  if (data.startsWith("amount_sell_market_percent_")) {
     const selectedWallet = selectedWallets.get(userId);
     const marketOrder = marketOrders.get(userId);
 
@@ -580,7 +580,7 @@ bot.on("callback_query", async (query) => {
       return;
     }
 
-    const percentStr = data.replace("amount_sell_percent_market_", "");
+    const percentStr = data.replace("amount_sell_market_percent_", "");
     const percent = parseFloat(percentStr);
 
     try {
@@ -746,29 +746,6 @@ bot.on("callback_query", async (query) => {
         ],
       },
     });
-  }
-
-  if (data.startsWith("select_token_sell_")) {
-    const tokenAddress = data.replace("select_token_sell_", "");
-
-    const existingOrder = pendingOrders.get(userId);
-    if (!existingOrder || existingOrder.type !== "SELL") {
-      await bot.sendMessage(chatId, "❌ No SELL order in progress.");
-      return;
-    }
-
-    existingOrder.tokenIn = tokenAddress;
-    pendingOrders.set(userId, existingOrder);
-
-    const shortToken = `${tokenAddress.slice(0, 6)}...${tokenAddress.slice(
-      -4
-    )}`;
-
-    await bot.sendMessage(chatId, `✅ Token to SELL set:\n\`${shortToken}\``, {
-      parse_mode: "Markdown",
-    });
-
-    // Optionally show SELL Limit Order UI again
   }
 
   if (data === "buylimitorder") {
@@ -1442,7 +1419,7 @@ bot.on("callback_query", async (query) => {
         const amount = Math.floor(Number(balance) * percent);
         return {
           text: `${percent * 100}% (${amount} token)`,
-          callback_data: `amount_sell_percent_market_${percent}`,
+          callback_data: `amount_sell_market_percent_${percent}`,
         };
       };
 

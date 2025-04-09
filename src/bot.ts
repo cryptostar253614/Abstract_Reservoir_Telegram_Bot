@@ -170,6 +170,7 @@ class AbstractChainService {
           to: txData.to,
           data: txData.data,
           value: txData.value ? ethers.toBigInt(txData.value) : 0n,
+          gasLimit: txData.gas ? ethers.toBigInt(txData.gas) : undefined,
         };
 
         try {

@@ -1442,6 +1442,78 @@ bot.on("callback_query", async (query) => {
     }
   }
 
+  if (data === "edit_amount_buy") {
+    userStates.set(userId, "AWAITING_AMOUNT_INPUT_BUY");
+    const selectedWallet = selectedWallets.get(userId);
+    const pendingOrder = pendingOrders.get(userId);
+
+    if (!selectedWallet || !pendingOrder?.tokenIn) {
+      await bot.sendMessage(
+        chatId,
+        "⚠️ Please select a wallet and token first."
+      );
+      return;
+    }
+
+    try {
+      const balance = await abstractChainService.getBalance(
+        pendingOrder.tokenIn,
+        selectedWallet
+      );
+      if (Number(balance) === 0) {
+        await bot.sendMessage(chatId, `😕 Your wallet has 0 token.`);
+        return;
+      }
+      await bot.sendMessage(
+        chatId,
+        `💰 *Enter the amount you want to buy:*\n_(e.g., 0.5 WETH)_\n\nYour wallet has *${ethers.formatUnits(
+          balance,
+          18
+        )} WETH*`,
+        { parse_mode: "Markdown" }
+      );
+    } catch (err) {
+      console.error("Error getting token balance:", err);
+      await bot.sendMessage(chatId, "❌ Failed to retrieve token balance.");
+    }
+  }
+
+  if (data === "edit_amount_buy_market") {
+    userStates.set(userId, "AWAITING_AMOUNT_INPUT_BUY_MARKET");
+    const selectedWallet = selectedWallets.get(userId);
+    const marketOrder = marketOrders.get(userId);
+
+    if (!selectedWallet || !marketOrder?.tokenIn) {
+      await bot.sendMessage(
+        chatId,
+        "⚠️ Please select a wallet and token first."
+      );
+      return;
+    }
+
+    try {
+      const balance = await abstractChainService.getBalance(
+        marketOrder.tokenIn,
+        selectedWallet
+      );
+      if (Number(balance) === 0) {
+        await bot.sendMessage(chatId, `😕 Your wallet has 0 token.`);
+        return;
+      }
+      await bot.sendMessage(
+        chatId,
+        `💰 *Enter the amount you want to buy:*\n_(e.g., 0.5 WETH)_\n\nYour wallet has *${ethers.formatUnits(
+          balance,
+          18
+        )} WETH*`,
+        { parse_mode: "Markdown" }
+      );
+    } catch (err) {
+      console.error("Error getting token balance:", err);
+      await bot.sendMessage(chatId, "❌ Failed to retrieve token balance.");
+    }
+  }
+
   switch (data) {
     case "edit_token_buy":
       // Mark user as awaiting tokenOut input
@@ -1483,22 +1555,6 @@ bot.on("callback_query", async (query) => {
         {
           parse_mode: "Markdown",
         }
-      );
-      break;
-
-    case "edit_amount_buy":
-      userStates.set(userId, "AWAITING_AMOUNT_INPUT_BUY");
-      await bot.sendMessage(
-        chatId,
-        "💰 Enter the amount you want to buy: (e.g., 0.5 ETH)"
-      );
-      break;
-
-    case "edit_amount_buy_market":
-      userStates.set(userId, "AWAITING_AMOUNT_INPUT_BUY_MARKET");
-      await bot.sendMessage(
-        chatId,
-        "💰 Enter the amount you want to buy: (e.g., 0.5 ETH)"
       );
       break;
 

@@ -926,9 +926,6 @@ bot.on("callback_query", async (query) => {
     }
 
     try {
-      // Clear the pending order for the user
-      marketOrders.delete(userId);
-
       const tokenToWatch =
         order.type === "BUY" ? order.tokenOut : order.tokenIn;
       const price = await getLivePrice(tokenToWatch);
